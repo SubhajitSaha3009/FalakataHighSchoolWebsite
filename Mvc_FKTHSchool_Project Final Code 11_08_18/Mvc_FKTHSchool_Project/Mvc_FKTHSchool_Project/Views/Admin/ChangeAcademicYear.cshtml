@@ -1,0 +1,107 @@
+﻿@model IEnumerable<Mvc_FKTHSchool_Project.Models.AdminWhoChangedAcademicYearModel>
+
+@{
+    ViewBag.Title = "ChangeAcademicYear";
+    Layout = "~/Views/Shared/myLayout_Admin.cshtml";
+}
+
+
+@*<script>
+    function DisableButton(b) {
+        b.disabled = true;
+        b.value = 'Submitting';
+        b.form.submit();
+    }
+</script>*@
+<script>
+$('#submit-button').click(function() {
+  $(this).hide();
+  $('#working-message').html('Working on that...');
+  $.post('/someurl', formData, function(data) {
+    //success
+    //redirect to all done page
+  }).fail(function(xhr) {
+    $('#submit-button').show();
+    $('#working-message').html('Submit failed, try again?');
+  });
+}); // end on click
+    </script>
+
+
+<div class="container ">
+    <div class="row">
+        <p style="height:20px"></p>
+        <center><i style="color:green;font-size:25px;">@ViewBag.msg</i></center>
+        <center><i style="color:red;font-size:25px;">@ViewBag.emsg</i></center>
+        <div style="height:250px;overflow-y:scroll;" class="col-sm-6 col-sm-offset-3">
+            <table class="table table-hover table-bordered g-bg-color--sky-light"  align="center">
+                <tr>
+                    <td colspan="3" align="center">
+                        <h2 style="color:aqua;"><b>LAST 10 ACTIVITIES</b></h2>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.adminID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.adminDone)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.dateAndTime)
+                    </th>
+
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.adminID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.adminDone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.dateAndTime)
+                        </td>
+
+                    </tr>
+                }
+
+            </table>
+
+
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <form action="" method="post">
+
+            <table align="center">
+                <tr>
+                    <td height="100px"></td>
+
+                    <td>
+                        <a id="submit-button" class="btn btn-danger" href="@Url.Action("Increamentyear", "Admin", new { action = "increment", @style = "color:white" })" onclick="return confirm('Are sure wants to Increment?');">Increament Year</a>
+                        <span id="working-message"></span>
+                    </td>
+                    <td> &nbsp;&nbsp;&nbsp;&nbsp;</td>
+
+
+                    <td>
+                        <a id="submit-button"  class="btn btn-danger" href="@Url.Action("Decreamentyear", "Admin", new { action1 = "decrement"})" onclick="return confirm('Are sure wants to Decrement?');">Decreament Year</a>
+                        <span id="working-message"></span>
+                    </td>
+                </tr>
+               
+                <tr>
+                    <td height="100px"></td>
+                </tr>
+
+            </table>
+        </form>
+    </div>
+</div>

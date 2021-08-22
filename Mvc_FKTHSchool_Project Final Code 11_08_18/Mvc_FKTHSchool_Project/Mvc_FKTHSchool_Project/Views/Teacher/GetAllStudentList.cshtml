@@ -1,0 +1,52 @@
+﻿@model Mvc_FKTHSchool_Project.Models.FetchStudentByClassModel
+
+@{
+    ViewBag.Title = "GetAllStudentList";
+    Layout = "~/Views/Shared/myLayout_Teacher.cshtml";
+}
+
+<div class="g-bg-color--sky-light">
+    <div class="container g-padding-y-80--xs g-padding-y-125--sm">
+        @*<h2>GetAllStudentList</h2>*@
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+    
+        <fieldset>
+            <center>
+                <legend>Get All Students</legend>
+                <table style="width:40%">
+                    <tr>
+                        <td>
+                            <div class="editor-label">
+                                <h1>@Html.LabelFor(model => model.ofClass, new {@style="font-size:17px;" })</h1>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="g-margin-b-20--xs">
+                                @Html.DropDownList("ofClass", ViewBag.classSelection as List<SelectListItem>, new { @class = "form-control s-form-v2__input g-radius--50" })
+                                @*@Html.EditorFor(model => model.ofClass)*@
+
+                            </div>
+                        </td>
+                        <td style="color:red;">
+                            @Html.ValidationMessageFor(model => model.ofClass)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td >
+                            <button type="submit" value="View Students" class="g-text-center--xs s-btn s-btn--md s-btn--primary-bg g-radius--50 g-padding-x-80--xs">View Student</button>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+</fieldset>
+    
+        }
+
+        </div>
+</div>

@@ -1,0 +1,320 @@
+﻿@model Mvc_FKTHSchool_Project.Models.FeedbackModel
+
+@{
+    ViewBag.Title = "StudentProfile";
+    Layout = "~/Views/Shared/MyLayout_studentProfile.cshtml";
+}
+
+<script>
+    function sentFeedback()
+    {
+        alert("Thank you for your feedback!");
+        location.reload(true);
+    }
+</script>
+
+
+<!--from layout-->
+<figure class="main_area">
+   
+    <div id="home" class="home home-main-content">
+        <div style="float:right;margin-right:50px;margin-top:30px"><a href="@Url.Action("Logout", "RegisteredView")" class="btn btn-white">Logout</a></div>
+        <div class="home-overlay-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="main_home_content text-center wow fadeInUp" data-wow-duration="1.5s">
+
+
+
+
+                        <div>
+                            <i style="font-size:50px">ID: @User.Identity.Name</i><br/>
+                            <b style="color: #f0e68c; font-size: 75px">@ViewBag.StdName</b> <br />
+                            @if (ViewBag.ClassStd == "111")
+                            {
+                                ViewBag.ClassStd = "11-Science";
+                            }
+                            else if (ViewBag.ClassStd == "112")
+                            {
+                                ViewBag.ClassStd = "11-Arts";
+                            }
+                            else if (ViewBag.ClassStd == "113")
+                            {
+                                ViewBag.ClassStd = "11-Commerce";
+                            }
+                            else if (ViewBag.ClassStd == "121")
+                            {
+                                ViewBag.ClassStd = "12-Science";
+                            }
+                            else if (ViewBag.ClassStd == "122")
+                            {
+                                ViewBag.ClassStd = "12-Arts";
+                            }
+                            else if (ViewBag.ClassStd == "123")
+                            {
+                                ViewBag.ClassStd = "12-Commerce";
+                            }
+                           
+                            <i style="font-size:50px"> Class @ViewBag.ClassStd</i>
+                            
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div><!-- End of Banner Section -->
+    <!-- End of Features Section -->
+
+
+    <section id="tinyforest" class="tinyforest">
+        <div class="tinyforest_overlay" style="background:url(../../Content/Template/img/notes.jpg) no-repeat top center;background-size:cover;">
+        
+                <div class="container chikobiko">
+                    <div class="row">
+                        <div class="main_tinyforest">
+                            <div class="col-md-5">
+                                <div class="single_tinyforest wow fadeInRight" data-wow-duration="1.5s">
+
+                                    <h3>Notes</h3>
+                                    <blockquote>
+                                        <p>Request your teachers to update notes</p>
+                                        <p>Click on View Notes to see what they uploaded</p>
+                                    </blockquote>
+
+                                    <div ><a class="btn btn-white" href="@Url.Action("NoteDwnld", "RegisteredView")">View Notes </a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           
+            </div>
+</section>
+
+    <section id="coolautumn" class="coolautumn">
+        <div class="tinyforest_overlay coolautumn_overlay" style="background:url(../../Content/Template/img/notice1.jpg) no-repeat top center;background-size:cover;">
+            <div class="container bangbang">
+                <div class="row">
+                    <div class="main_coolautumn">
+                        <div class="col-md-5 col-md-offset-7">
+                            <div class="single_coolautumn text-right wow fadeInLeft" data-wow-duration="1.5s">
+
+                                <h3>Notice Board</h3>
+                                <blockquote class="blockquote-reverse">
+                                    <p>Get in touch with latest news and updates of FKTHS.</p>
+                                </blockquote>
+                                <a href="#" class="btn btn-white">View Notice</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="drivinghome" class="drivinghome">
+        @*<div class="tinyforest_overlay drivinghome_overlay " style="background:url(../../Content/Template/img/result2.jpg )>*@
+    <div class=" tinyforest_overlay drivinghome_overlay" style="background:url(../../Content/Template/img/result11.jpg) no-repeat top center;background-size:cover;">
+            <div class=" container chikobiko">
+                <div class="row">
+                    <div class="main_drivinghome">
+                        <div class="col-md-5">
+                            <div class="single_drivinghome wow fadeInRight" data-wow-duration="2s" style="color:darkgreen">
+
+                                <h1>View Results</h1>
+                                @*<blockquote>
+                                    <p>Download your academic results by clicking on View Results</p>
+                                </blockquote>*@
+                                <a href="#" class="btn btn-white">View Results</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- End of Pricing Section -->
+
+    <section id="coolautumn" class="coolautumn">
+        <div class="tinyforest_overlay coolautumn_overlay" style="background:url(../../Content/Template/img/r1.jpg) no-repeat top center;background-size:cover;">
+            <div class="container bangbang">
+                <div class="row">
+                    <div class="main_coolautumn">
+                        <div class="col-md-5 col-md-offset-7">
+                            <div class="single_coolautumn text-right wow fadeInLeft" data-wow-duration="1.5s">
+
+                                <h3>Routine</h3>
+                                <blockquote class="blockquote-reverse">
+                                    <p>Get your class and examination routine here.</p>
+                                </blockquote>
+                                <div><a class="btn btn-white" href="@Url.Action( "RoutineDownload", "RegisteredView")">View Routine</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="drivinghome" class="drivinghome">
+        <div class="tinyforest_overlay" style="background:url(../../Content/Template/img/magazine1.jpg) no-repeat top center;background-size:cover;">
+            <div class="container chikobiko">
+                <div class="row">
+                    <div class="main_drivinghome">
+                        <div class="col-md-5">
+                            <div class="single_drivinghome wow fadeInRight" data-wow-duration="2s">
+
+                                <h3>School Magazine</h3>
+                                <blockquote>
+                                    <p>Upload your writings for school magazine</p>
+                                </blockquote>
+                                <a href="" class="btn btn-white">Comming Soon..</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="contact" class="contact">
+        <div class="about_overlay ">
+            <div class="container bangbang">
+                <div class="row">
+                    <div class="main_contact">
+                        <div class="head_title text-center wow fadeInDown" data-wow-duration="1s">
+                            <h2><i class="fa fa-star"></i> Give a feedback <i class="lnr lnr-star"></i></h2>
+                        </div>
+                        <div class="contact_content">
+
+                            
+                            @using (Ajax.BeginForm("StudentProfile", "RegisteredView", new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.InsertBefore, UpdateTargetId = "show", OnSuccess = "sentFeedback" }))
+                            {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+
+    <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="contact_message wow fadeInLeft" data-wow-duration="1.5s">
+            @*<form action="#" id="formid">*@
+                <div class="form-group">
+                    @*<input type="text" class="form-control" name="name" placeholder="Name" required="">*@
+                    @Html.TextBoxFor(model => model.name, new { @class = "form-control", placeholder = "*Full Name" })
+                    <b> <i style="color:red"> @Html.ValidationMessageFor(model => model.name)</i></b>
+                </div>
+
+                
+                <div class="form-group">
+                    @*<textarea class="form-control" name="message" rows="6" placeholder="Message"></textarea>*@
+                    @Html.TextAreaFor(model => model.feedbackMessage, new { @class = "form-control", placeholder = "*Your Message", @rows = "6" })
+                    <b> <i style="color:red"> @Html.ValidationMessageFor(model => model.feedbackMessage)</i></b>
+                 </div>
+
+                <div class="message_btn text-right">
+                    <button type="submit"  class="btn btn-primary">Send</button>
+                </div>
+            @*</form>*@
+        </div>
+    </div>
+
+
+                            }
+
+
+
+
+
+
+                          
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section><!-- End of contact With Map Section -->
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="main_footer text-center wow fadeInUp" data-wow-duration="2s">
+                        <p class="g-font-size-14--xs g-margin-b-0--xs g-color--white-opacity-light"><a target="_blank" href="@Url.Action( "GetDevelopers", "PublicView")">Developers Group</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>FeedbackModel</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.feedbackID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.feedbackID)
+            @Html.ValidationMessageFor(model => model.feedbackID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.name)
+            @Html.ValidationMessageFor(model => model.name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.feedbackMessage)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.feedbackMessage)
+            @Html.ValidationMessageFor(model => model.feedbackMessage)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}*@
+
+

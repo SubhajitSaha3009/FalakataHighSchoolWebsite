@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Mvc_FKTHSchool_Project.Models.NotesDownloadModel>
+
+@{
+   ViewBag.Title = "Download Note";
+   Layout = "~/Views/Shared/_myLayout_Student.cshtml";
+}
+
+
+    <!--========== PROMO BLOCK ==========-->
+<div class="g-bg-position--center js__parallax-window" style="background: url(../../Content/Template/img/notes.jpg ) 50% 0 no-repeat fixed;height:300px">
+    <div class="g-container--md g-text-center--xs g-padding-y-150--xs">
+        <p class="text-uppercase g-font-size-48--xs g-font-weight--700 g-color--white g-letter-spacing--2 g-margin-b-25--xs">Download Notes</p>
+
+    </div>
+</div>
+<!--========== END PROMO BLOCK ==========-->
+
+
+ 
+
+ 
+    <div class="g-bg-color--sky-light">
+        <div class="container g-padding-y-20--xs g-padding-y-80--sm">
+
+            <table class="table table-bordered table-hover" align="center" cellpadding="10" style="width:60%;text-align:center;">
+                <tr>
+                  
+                    <th style="text-align:center">
+                        @Html.DisplayNameFor(model => model.Section)
+                    </th>
+                    <th style="text-align:center">
+                        @Html.DisplayNameFor(model => model.NotesDesc)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        
+                       
+                        <td>
+
+                            @Html.DisplayFor(modelItem => item.Section)
+
+                        </td>
+                        <td>
+
+                            @Html.DisplayFor(modelItem => item.NotesDesc)
+
+                        </td>
+                        <td>
+                            @*@Html.ActionLink("Download", "Download", new { ImagePath = @item.NotesPath })*@
+                            <a href=@Url.Content(@item.NotesPath) target="_blank">Download</a>
+                        </td>
+                        @*<td>
+                                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                            </td>*@
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+

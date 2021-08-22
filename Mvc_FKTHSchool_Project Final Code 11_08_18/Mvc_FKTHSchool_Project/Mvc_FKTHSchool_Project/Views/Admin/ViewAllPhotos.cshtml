@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Mvc_FKTHSchool_Project.Models.ViewGalleryModel>
+
+@{
+    ViewBag.Title = "ViewAllPhotos";
+    Layout = "~/Views/Shared/myLayout_Admin.cshtml";
+}
+<div class="g-bg-color--sky-light" style="overflow-x:scroll">
+    <div class="container g-padding-y-20--xs g-padding-y-20--sm">
+        <center><i style="color:green;font-size:25px;">@ViewBag.Msg</i></center>
+        <center class="g-margin-b-20--lg g-margin-b-20--xs"><i style="color: red; font-size: 25px;">@ViewBag.eMsg</i></center>
+        <center><h2>ViewAllPhotos</h2></center>
+
+
+        <table class="table table-hover table-bordered" align="center" style="width:70%">
+            <tr>
+                <th>
+                    Uploader Id
+                </th>
+                <th>
+                    Image Title
+                </th>
+                <th>
+                    Image Description
+                </th>
+               
+                <th>
+                    Upload Date Time
+                </th>
+                <th>Action</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.uploaderID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.imageDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.uploadDate)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete", "DeletePhotos", new { id = item.ImageId }, new { onclick = "return confirm('Are sure wants to delete?');" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

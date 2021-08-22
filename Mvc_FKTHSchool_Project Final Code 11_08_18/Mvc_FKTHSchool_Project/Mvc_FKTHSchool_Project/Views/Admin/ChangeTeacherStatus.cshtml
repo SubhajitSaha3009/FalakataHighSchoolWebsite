@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "ChangeTeacherStatus";
+    Layout = "~/Views/Shared/myLayout_Admin.cshtml";
+}
+
+<link href="~/Content/themes/my_style.css" rel="stylesheet" />
+<div align="center">
+    @Html.BeginForm("ChangeTeacherStatus","Admin")
+    {
+    <table>
+        <tr>
+            <td>
+                @Html.Label("Enter TeacherID")
+            </td>
+            <td>
+                @Html.TextBox("teacherID")
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align:center">
+                <input type="submit" value="Proceed" />
+            </td>
+        </tr>
+        
+        @*@Html.DropDownList("accountID", ViewBag.ids as List<SelectListItem>, new { id = "ddl_accountIDS" })*@
+        
+    </table>
+       
+    }
+</div>

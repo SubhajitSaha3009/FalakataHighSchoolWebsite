@@ -1,0 +1,75 @@
+﻿@model Mvc_FKTHSchool_Project.Models.UpdateTeacherByIDModel
+
+@{
+    ViewBag.Title = "UpdateTeacherByID";
+    Layout = "~/Views/Shared/myLayout_Admin.cshtml";
+}
+
+<link href="~/Content/themes/my_style.css" rel="stylesheet" />
+<div class="g-bg-color--sky-light">
+    <div class="container g-padding-y-80--xs g-padding-y-125--sm">
+        @*<h2>UpdateTeacherByID</h2>*@
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+
+            
+                <fieldset>
+                    <center><legend><h2>Update Teacher Profile</h2></legend></center>
+
+                    <div align="center" style="width:200%;">
+
+                        <div class="row g-margin-b-40--xs">
+                            <div class="col-sm-6 g-margin-b-20--xs g-margin-b-0--md">
+                                <table>
+                                    <tr>
+                                        @*<td>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.teacherID)
+                                </div>
+                            </td>*@
+                                        <td>
+                                            <div class="g-margin-b-20--xs">
+                                                <div class="editor-label input-group">
+                                                    @*@Html.EditorFor(model => model.teacherID)*@
+                                                    @Html.TextBoxFor(model => model.teacherID, new { @class = "form-control s-form-v2__input g-radius--left-50", placeholder = "*Enter teacher ID", maxlength="4"})
+                                                    @*<input type="text" class="form-control s-form-v2__input g-radius--left-50" name="teacherID" placeholder="Enter Teacher ID">*@
+                                                    <span class="input-group-btn">
+                                                        <button type="submit" class="s-btn s-btn-icon--md s-btn-icon--white-brd s-btn--white-brd g-radius--right-50" style="background-color:aqua;"><i class="ti-arrow-right"></i></button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                       
+                                    </tr>
+                                    <tr>
+                                        
+                                        <td style="color:red;">
+                                            @Html.ValidationMessageFor(model => model.teacherID)
+                                        </td>
+                                    </tr>
+
+                                    @*<tr>
+                                        <td colspan="2" class="input-group">
+                                            <p>
+                                                <button type="submit" value="PROCEED" class="g-text-center--xs s-btn s-btn--md s-btn--primary-bg g-radius--50 g-padding-x-80--xs">PROCEED</button>
+                                            </p>
+                                            
+
+                                        </td>
+                                    </tr>*@
+
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+        </fieldset>
+
+        }
+
+    </div>
+    </div>

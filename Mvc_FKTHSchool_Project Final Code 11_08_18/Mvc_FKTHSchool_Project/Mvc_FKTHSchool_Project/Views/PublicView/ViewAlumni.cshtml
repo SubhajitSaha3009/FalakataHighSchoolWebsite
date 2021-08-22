@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Mvc_FKTHSchool_Project.Models.AlumniModel>
+
+@{
+    ViewBag.Title = "ViewAlumni";
+    Layout = "~/Views/Shared/_LayoutPublic.cshtml";
+}
+<link href="~/Content/Scrollbar.css" rel="stylesheet" />
+
+    <div class="js__parallax-window" style="background: url(../../AlumniImages/alumni4.jpg) 50% 0 no-repeat fixed;height:360px;">
+        <div class="container g-text-center--xs g-padding-y-80--xs g-padding-y-125--sm">
+            <div class="g-margin-b-100--xs">
+                <div class="g-text-center--xs g-margin-b-50--xs">
+                    <p class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--white-opacity g-letter-spacing--2 g-margin-b-25--xs"></p>
+                    <h2 class="g-font-size-40--xs g-font-size-50--sm g-font-size-60--md g-font-family--playfair g-color--white">Toppers of Falakata High School</h2>
+                </div>
+
+            </div>
+        </div>
+    </div>
+<div class="container g-margin-t-o-100--xs g-margin-b-125--xs">
+    <div class="row g-row-col--0">
+        <div class="col-sm-12 col-md-6">
+            <div class="g-rad g-bg-position--center g-padding-x-30--xs g-padding-x-40--sm g-padding-y-30--xs g-padding-y-40--sm js__tab-eqaul-height-v1" style="background: url('../../AlumniImages/ovr.jpg') no-repeat;height:630px;">
+                <div class="g-hor-border-1__solid--primary g-padding-x-40--xs g-padding-x-50--sm g-height-550--xs">
+                    <p class="g-text-center--xs g-font-size-34--sm g-font-size-24--xs g-font-weight--500 g-color--gold">Madhyamik</p>
+                    <div class="center-block g-hor-divider__solid--white g-width-150--xs g-color--gold g-margin-b-30--xs"></div>
+                    <div class="Scroll" style="height:438px">
+                        <table align="center" style="text-align:center">
+                            @foreach (var item in Model)
+                            {
+                                if (item.allumniClass == "10")
+                                {
+                                    <tr>
+                                        <td class="text-uppercase g-display-block--xs g-font-size-28--sm g-font-size-20--xs g-font-weight--500 g-color--primary">
+                                            @Html.DisplayFor(modelItem => item.year)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-uppercase g-display-block--xs g-font-size-24--sm g-font-size-18--xs g-color--white g-font-weight--700">
+                                            @Html.DisplayFor(modelItem => item.name)
+                                            <div class="center-block g-hor-divider__solid--white g-width-50--xs g-color--gold g-margin-b-30--xs"></div>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-6">
+            <div class="g-bg-position--center g-padding-x-30--xs g-padding-x-40--sm g-padding-y-30--xs g-padding-y-40--sm js__tab-eqaul-height-v1" style="background: url('../../AlumniImages/ovr2.jpg') no-repeat;height:630px;">
+                <div class="g-hor-border-1__solid--primary g-padding-x-40--xs g-padding-x-50--sm g-height-550--xs">
+                    <p class="g-text-center--xs g-font-size-34--sm g-font-size-24--xs g-font-weight--500 g-color--gold">Higher Secondary</p>
+                    <div class="center-block g-hor-divider__solid--white g-width-150--xs g-color--gold g-margin-b-30--sm  g-margin-b-20--xs"></div>
+                    <div class="Scroll" style="height:438px;">
+                        <table align="center" style="text-align:center">
+                            @foreach (var item in Model)
+                            {
+                                if (item.allumniClass == "12")
+                                {
+                            <tr>
+                                <td class="text-uppercase g-display-block--xs g-font-size-28--sm g-font-size-20--xs g-font-weight--500 g-color--primary">
+                                    @Html.DisplayFor(modelItem => item.year)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-uppercase g-display-block--xs g-font-size-24--sm g-font-size-18--xs g-color--white g-font-weight--700">
+                                    @Html.DisplayFor(modelItem => item.name)
+                                    <div class="center-block g-hor-divider__solid--white g-width-50--xs g-color--gold g-margin-b-30--xs"></div>
+                                </td>
+                            </tr>
+                                }
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

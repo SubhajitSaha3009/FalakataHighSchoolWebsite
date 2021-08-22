@@ -1,0 +1,207 @@
+﻿@model Mvc_FKTHSchool_Project.Models.TeacherModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/myLayout_Teacher.cshtml";
+}
+
+
+@* New Teachers Profile*@
+
+<div class="container-fluid g-padding-y-40--lg g-padding-y-80--xs" style="background-color:whitesmoke">
+    <div class="row">
+        <center><i style="color:green; font-size:25px; margin-bottom:20px;">@ViewBag.msg</i></center>
+
+        <div class="col-sm-10 col-sm-offset-1 text-center">
+            <div class="row DarkShadow" style="background-color:white">
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    @*<div class="g-padding-y-10--lg g-font-size-34--lg g-font-size-30--xs" style="color:darkkhaki;text-align:left">
+                            <b><i>Hello,</i></b>
+                        </div>*@
+                    <div class="g-padding-y-20--lg g-padding-l-25-lg g-padding-r-25--lg g-padding-y-15--xs" style="width:250px;height:300px;">
+                        @if (Model.teacherGender == "Female")
+                        {
+                            <img class="img-thumbnail Pic" src="@Model.imageAddress" onerror="this.onerror = null; this.src = '/TeacherImages/teacher_female.jpg'  " alt="">
+                        }
+                        else
+                        {
+                            <img class="img-thumbnail Pic" src="@Model.imageAddress" onerror="this.onerror = null; this.src = '/TeacherImages/teacher_male.jpg'  " alt="">
+                        }
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <table class="table table-stripped g-padding-l-30-lg" align="left" style="padding-left: 50px; text-align:left; width:70%; height:80%;">
+                                <tr class="g-padding-y-30--lg">
+                                    <td colspan="2">
+                                        <b class="g-font-size-22--xs g-font-size-30--lg">
+                                            <div class="display-label g-margin-b-10--lg" style="color:darkorange;">
+                                                @Html.DisplayFor(model => model.teacherName)
+                                            </div>
+
+                                        </b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:left">
+                                        <b>
+                                            <div class="display-label g-font-size-16--lg g-margin-b-10--lg" style="color:darkblue;">
+                                                @Html.DisplayNameFor(model => model.dob)
+                                            </div>
+                                        </b>
+                                    </td>
+                                    <td>
+                                        <div class="display-field g-font-size-14--lg">
+                                            <b>@Html.DisplayFor(model => model.dob)</b>
+                                        </div>
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td style="text-align:left">
+                                        <b>
+                                            <div class="display-label g-font-size-16--lg g-margin-b-10--lg" style="color:darkblue;">
+                                                @Html.DisplayNameFor(model => model.teacherDesignation)
+                                            </div>
+                                        </b>
+                                    </td>
+                                    <td>
+                                        <div class="display-field g-font-size-14--lg">
+                                            <b>@Html.DisplayFor(model => model.teacherDesignation)</b>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                @if (Model.subjectSpecilization != "")
+                                {
+                                    <tr>
+                                        <td style="text-align:left">
+                                            <b>
+                                                <div class="display-label g-font-size-16--lg g-margin-b-10--lg" style="color:darkblue;">
+                                                    @Html.DisplayNameFor(model => model.subjectSpecilization)
+                                                </div>
+                                            </b>
+                                        </td>
+                                        <td>
+                                            <div class="display-field g-font-size-14--lg">
+                                                <b>@Html.DisplayFor(model => model.subjectSpecilization)</b>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+
+                                <tr>
+                                    <td style="text-align:left">
+                                        <b>
+                                            <div class="display-label g-font-size-16--lg g-margin-b-10--lg" style="color:darkblue;">
+                                                @Html.DisplayNameFor(model => model.teacherAddress)
+                                            </div>
+                                        </b>
+                                    </td>
+                                    <td>
+                                        <div class="display-field g-font-size-14--lg">
+                                            <b>@Html.DisplayFor(model => model.teacherAddress)</b>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="text-align:left">
+                                        <b>
+                                            <div class="display-label g-font-size-16--lg g-margin-b-10--lg" style="color:darkblue;">
+                                                @Html.DisplayNameFor(model => model.teacherMobileNo)
+                                            </div>
+                                        </b>
+                                    </td>
+                                    <td>
+                                        <div class="display-field g-font-size-14--lg">
+                                            <b>@Html.DisplayFor(model => model.teacherMobileNo)</b>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                @if (Model.teacherEmailID != "")
+                                {
+                                    <tr>
+                                        <td style="text-align:left">
+                                            <b>
+                                                <div class="display-label g-font-size-16--lg g-margin-b-10--lg" style="color:darkblue;">
+                                                    @Html.DisplayNameFor(model => model.teacherEmailID)
+                                                </div>
+                                            </b>
+                                        </td>
+                                        <td>
+                                            <div class="display-field g-font-size-14--lg">
+                                                <b>@Html.DisplayFor(model => model.teacherEmailID)</b>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+
+
+                                @if (Model.teacherPAN != "")
+                                {
+                                    <tr>
+                                        <td style="text-align:left">
+                                            <b>
+                                                <div class="display-label g-font-size-16--lg g-margin-b-10--lg" style="color:darkblue;">
+                                                    @Html.DisplayNameFor(model => model.teacherPAN)
+                                                </div>
+                                            </b>
+                                        </td>
+                                        <td>
+                                            <div class="display-field g-font-size-14--lg">
+                                                <b>@Html.DisplayFor(model => model.teacherPAN)</b>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+
+                                @if (Model.teacherAadhar != "")
+                                {
+                                    <tr>
+                                        <td style="text-align:left">
+                                            <b>
+                                                <div class="display-label g-font-size-16--lg g-margin-b-10--lg" style="color:darkblue;">
+                                                    @Html.DisplayNameFor(model => model.teacherAadhar)
+                                                </div>
+                                            </b>
+                                        </td>
+                                        <td>
+                                            <div class="display-field g-font-size-14--lg">
+                                                <b>@Html.DisplayFor(model => model.teacherAadhar)</b>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+
+                                <tr>
+                                    <td style="text-align:left">
+                                        <b>
+                                            <div class="display-label g-font-size-16--lg g-margin-b-10--lg" style="color:darkblue;">
+                                                @Html.DisplayNameFor(model => model.noOfNotesUploaded)
+                                            </div>
+                                        </b>
+                                    </td>
+                                    <td>
+                                        <div class="display-field g-font-size-14--lg">
+                                            <b>@Html.DisplayFor(model => model.noOfNotesUploaded)</b>
+                                        </div>
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

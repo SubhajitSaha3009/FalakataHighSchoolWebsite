@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Mvc_FKTHSchool_Project.Models.NoticeModel>
+
+@{
+    ViewBag.Title = "ViewAllNotices";
+    Layout = "~/Views/Shared/myLayout_Admin.cshtml";
+}
+
+<div class="g-bg-color--sky-light" style="overflow-x:scroll">
+    <div class="container g-padding-y-20--xs g-padding-y-10--sm">
+        <center>
+            <i style="color:green;font-size:25px;"> @ViewBag.msg </i><br />
+            <i style="color:red;font-size:25px;"> @ViewBag.errmsg </i>
+            <i style="color:red;font-size:25px;"> @ViewBag.noNotice </i>
+        </center>
+        <center><h2>Delete Notices</h2></center>
+        <table class="table table-hover table-bordered" align="center" style="width:70%">
+            <tr>
+
+                <th>
+                    Admin ID
+                </th>
+                <th>
+                    Notice Title
+                </th>
+                <th>
+                    Upload Date
+                </th>
+                <th>
+                    Options
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AdminId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NoticeTitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.noticeUploadDate)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete", "DeleteNotice", new { id = item.NoticeId }, new { onclick = "return confirm('Are sure wants to delete?');" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+        </div>
+    </div>

@@ -1,0 +1,66 @@
+﻿@model Mvc_FKTHSchool_Project.Models.UpdateStudentByIDModel
+
+@{
+    ViewBag.Title = "UpdateStudentByID";
+    Layout = "~/Views/Shared/myLayout_Admin.cshtml";
+}
+
+
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <link href="~/Content/themes/my_style.css" rel="stylesheet" />
+    <div class="g-bg-color--sky-light">
+        <div class="container g-padding-y-80--xs g-padding-y-125--sm">
+            <fieldset>
+                <center style="color:green;"><b>@ViewBag.msg</b></center>
+                <center style="color:red;"><b>@ViewBag.nmsg</b></center>
+                <br/>
+                <center><legend><h2>Update Student's Profile</h2></legend></center>
+              
+                <div align="center" style="width:200%;">
+
+                    <div class="row g-margin-b-40--xs">
+                        <div class="col-sm-6 g-margin-b-20--xs g-margin-b-0--md">
+                            <table>
+                                <tr>
+
+                                    <td align="left" >  
+                                        <div class="g-margin-b-20--xs">
+                                            <div class="editor-label input-group">
+                                                   
+                                                    @Html.TextBoxFor(model => model.studentID, new { @class = "form-control s-form-v2__input g-radius--left-50", placeholder = "*Enter student ID" ,maxlength = "8" })
+                                                    
+                                                    <span class="input-group-btn">
+                                                        <button type="submit" class="s-btn s-btn-icon--md s-btn-icon--white-brd s-btn--white-brd g-radius--right-50" style="background-color:aqua;"><i class="ti-arrow-right"></i></button>
+                                                    </span>
+                                                
+                                             </div>
+                                         </div>
+                                    </td>
+                                    </tr>
+                                <tr>
+                                    <td align="right">
+                                        @Html.ValidationMessageFor(model => model.studentID)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="color:red;">
+                                        
+                                        @ViewBag.studentNotFound
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                  </div>
+            </fieldset>
+            </div>
+        </div>
+            }
+
+

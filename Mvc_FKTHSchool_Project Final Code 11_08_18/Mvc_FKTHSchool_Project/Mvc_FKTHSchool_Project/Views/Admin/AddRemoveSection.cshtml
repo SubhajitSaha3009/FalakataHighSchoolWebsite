@@ -1,0 +1,115 @@
+﻿@model Mvc_FKTHSchool_Project.Models.AddRemoveSectionModel
+
+@{
+    ViewBag.Title = "AddRemoveSection";
+    Layout = "~/Views/Shared/myLayout_Admin.cshtml";
+}
+
+
+<script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#ddl_class").change(function () {
+                //alert("dsds");
+                var n1 = $("#ddl_class").val();
+                var url = "/Admin/GetNoofSectionsAjax";
+
+                $.get(url, { enteredClass: n1 }, function (data) {
+                    $("#sec").html(data);
+                });
+                return false;
+            });
+
+
+
+        });
+    </script>
+
+
+
+
+
+
+
+
+@*<h2>AddRemoveSection</h2>*@
+<div class="g-bg-color--sky-light">
+    <div class="container g-padding-y-20--xs g-padding-y-40--sm">
+        <center><i style="font-size:25px; color:green;">@ViewBag.msg </i></center>
+        <center><i style="font-size:25px; color:red;">@ViewBag.ermsg</i></center>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+                <center> <legend><h2><b>Update no of section</b></h2></legend></center>
+                <table align="center">
+                    <tr>
+                        <td>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.enteredClass)
+                            </div>
+                        </td>
+                        <td>
+                            <div class="editor-field">
+                                @*@Html.EditorFor(model => model.enteredClass)*@
+                                @Html.DropDownList("enteredClass", ViewBag.classes as List<SelectListItem>, new { id = "ddl_class", @Class = "form-control s-form-v2__input g-radius--50" })
+                               
+                            </div>
+                        </td>
+                        <td style="color:red;">
+                            @Html.ValidationMessageFor(model => model.enteredClass)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.enteredSection)
+                            </div>
+                        </td>
+                        <td style="text-align:center;font-size:20px;">                            
+                            <div id="sec">
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.modifiedSection)
+                            </div>
+                        </td>
+                        <td>
+
+                            <div class="editor-field">                                
+                                @Html.DropDownList("modifiedSection", ViewBag.sec as List<SelectListItem>, new { id = "ddl_sec", @Class = "form-control s-form-v2__input g-radius--50" })
+                            </div>
+                        </td>
+                        <td style="color:red;">
+                            @Html.ValidationMessageFor(model => model.modifiedSection)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <p>
+                                @*<input type="submit" value="Create" />*@
+                                <center>    <button type="submit" value="Update no of section" class="g-text-center--xs s-btn s-btn--md s-btn--primary-bg g-radius--50 g-padding-x-80--xs">Update no of section</button></center>
+                            </p>
+                        </td>
+                    </tr>
+
+                   
+                  
+                   
+
+
+                   
+                    </table>
+            </fieldset>
+        }
+
+    </div>
+</div>

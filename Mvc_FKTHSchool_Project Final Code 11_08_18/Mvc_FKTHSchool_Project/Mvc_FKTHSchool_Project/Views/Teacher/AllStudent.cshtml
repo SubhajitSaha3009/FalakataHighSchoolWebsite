@@ -1,0 +1,163 @@
+﻿@model IEnumerable<Mvc_FKTHSchool_Project.Models.StudentDataFetchModel>
+
+@{
+    ViewBag.Title = "AllStudent";
+    Layout = "~/Views/Shared/myLayout_Teacher.cshtml";
+}
+
+
+<script language="javascript" type="text/javascript">
+    function PrintRadGrid(divId) {
+        debugger;
+        var divToPrint = document.getElementById(divId);
+        var newWin = window.open('PrintDiv', 'Print-Window', 'width=920,height=750,top=100,left=100');
+        newWin.document.open();
+        newWin.document.write('<html><title>Student Details</title><head><style>#in {display:none}</style><body   onload="window.print()">' + divToPrint.innerHTML + '</body></html>');
+        newWin.document.close();
+        setTimeout(function () { newWin.close(); }, 10);
+    }
+</script>
+
+
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+
+<div class="g-bg-color--sky-light">
+    <div class="container g-padding-y-80--xs g-padding-y-125--sm">
+        <div id="divId" style="overflow-x:scroll">
+            <fieldset>
+                @if (ViewBag.Class == "111")
+                {
+                    ViewBag.Class = "11-Science";
+                }
+                else if (ViewBag.Class == "112")
+                {
+                    ViewBag.Class = "11-Arts";
+                }
+                else if (ViewBag.Class == "113")
+                {
+                    ViewBag.Class = "11-Commerce";
+                }
+                else if (ViewBag.Class == "121")
+                {
+                    ViewBag.Class = "12-Science";
+                }
+                else if (ViewBag.Class == "122")
+                {
+                    ViewBag.Class = "12-Arts";
+                }
+                else if (ViewBag.Class == "123")
+                {
+                    ViewBag.Class = "12-Commerce";
+                }
+                <center><legend><h4><b> Class @ViewBag.Class</b></h4></legend></center>
+                <table class="table table-hover table-bordered" cellspacing="20" border="1px" width="900px" align="center">
+                    <tr>
+                        <th>
+                            Student ID
+                        </th>
+                        <th>
+                            Name
+                        </th>
+                        @*<th>
+                            Class
+                        </th>*@
+                        <th>
+                            DOB
+                        </th>
+                        <th>
+                            Admission Year
+                        </th>
+                        <th>
+                            Gaurdian's Name
+                        </th>
+                        <th>
+                            Mother's Name
+                        </th>
+                        <th>
+                            Gaurdians Mobile-No
+                        </th>
+                        <th>
+                            Result Status
+                        </th>
+                        <th>
+                            Student Status
+                        </th>
+                        <th>
+                            Student Password
+                        </th>
+                        <th>
+                            Gender
+                        </th>
+                        <th>
+                            Student Address
+                        </th>
+
+                        @*<th>
+                        Action
+                    </th>*@
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StdId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StdName)
+                        </td>
+                        @*<td>
+                            @Html.DisplayFor(modelItem => item.OfClass)
+                        </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DOB)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Admsnyr)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.GuardName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MothrsName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MobNO)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RStatus)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SStatus)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StdPass)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.gender)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+
+                        @*<td>
+                        @Html.ActionLink("Update", "UpdateStudentProfile", new { id = item.StdId })
+
+                    </td>*@
+                    </tr>
+
+                    }
+
+                </table>
+                @*<input type="button" value="Print this page" onclick="window.print()">*@
+
+
+            </fieldset>
+</div>
+        <center><b><a href="#" onclick="window.print(); return false;">Print Student Details</a></b></center>
+
+        </div>
+    </div>

@@ -1,0 +1,742 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{37F81EA6-EF24-4A96-A06E-15EBA13DDD9B}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mvc_FKTHSchool_Project</RootNamespace>
+    <AssemblyName>Mvc_FKTHSchool_Project</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.30506.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.2\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.3.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.3.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="CheckPasswordStatusEnum.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AdminLoginController.cs" />
+    <Compile Include="Controllers\PublicViewController.cs" />
+    <Compile Include="Controllers\RegisteredViewController.cs" />
+    <Compile Include="Controllers\TeacherController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AddRemoveSectionModel.cs" />
+    <Compile Include="Models\AdminDAL.cs" />
+    <Compile Include="Models\AdminModel.cs" />
+    <Compile Include="Models\AdminWhoChangedAcademicYearModel.cs" />
+    <Compile Include="Models\AlumniModel.cs" />
+    <Compile Include="Models\ChangePasswordAdminModel.cs" />
+    <Compile Include="Models\ChangePasswordTeacherModel.cs" />
+    <Compile Include="Models\ChangeStudentResultSt.cs" />
+    <Compile Include="Models\CheckPasswordStatusEnum.cs" />
+    <Compile Include="Models\FeedbackModel.cs" />
+    <Compile Include="Models\FetchStudentByClassModel.cs" />
+    <Compile Include="Models\ForgetPasswordModel.cs" />
+    <Compile Include="Models\GalleryUploadModel.cs" />
+    <Compile Include="Models\GetAllTeacherModel.cs" />
+    <Compile Include="Models\GetStudentNotedByIdModel.cs" />
+    <Compile Include="Models\GetTeacherDetails.cs" />
+    <Compile Include="Models\LoginAdminModel.cs" />
+    <Compile Include="Models\LoginDAL.cs" />
+    <Compile Include="Models\LogInModel.cs" />
+    <Compile Include="Models\MyModel.cs" />
+    <Compile Include="Models\NewsModel.cs" />
+    <Compile Include="Models\NewsUploadModel.cs" />
+    <Compile Include="Models\NotesDownloadModel.cs" />
+    <Compile Include="Models\NotesModel.cs" />
+    <Compile Include="Models\NoticeDownloadModel.cs" />
+    <Compile Include="Models\NoticeModel.cs" />
+    <Compile Include="Models\OCModel.cs" />
+    <Compile Include="Models\PublicViewDAL.cs" />
+    <Compile Include="Models\RegisteredDal.cs" />
+    <Compile Include="Models\RoutineDownloadModel.cs" />
+    <Compile Include="Models\RoutineModel.cs" />
+    <Compile Include="Models\ShowAllPassoutStudentModel.cs" />
+    <Compile Include="Models\StudentDataFetchModel.cs" />
+    <Compile Include="Models\StudentModel.cs" />
+    <Compile Include="Models\TeacherDAL.cs" />
+    <Compile Include="Models\TeacherModel.cs" />
+    <Compile Include="Models\UpdateAdminByIDModel.cs" />
+    <Compile Include="Models\UpdateAdminModel.cs" />
+    <Compile Include="Models\UpdatePasswordAdminModel.cs" />
+    <Compile Include="Models\UpdatePasswordTeacherModel.cs" />
+    <Compile Include="Models\UpdateStudentByIDModel.cs" />
+    <Compile Include="Models\UpdateStudentProfileModel.cs" />
+    <Compile Include="Models\UpdateTeacherByIDModel.cs" />
+    <Compile Include="Models\UpdateTeacherModel.cs" />
+    <Compile Include="Models\UploadToppersModel.cs" />
+    <Compile Include="Models\ViewGalleryModel.cs" />
+    <Compile Include="Models\ViewToppersListModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AdminImages\admin.jpg" />
+    <Content Include="AlumniImages\president.jpg" />
+    <Content Include="AlumniImages\secretary.jpg" />
+    <Content Include="AlumniImages\alumni4.jpg" />
+    <Content Include="AlumniImages\ovr.jpg" />
+    <Content Include="AlumniImages\ovr2.jpg" />
+    <Content Include="Content\Scrollbar.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\Template\assets\css\._bootstrap-theme.min.css" />
+    <Content Include="Content\Template\assets\css\._bootstrap.min.css" />
+    <Content Include="Content\Template\assets\css\._font-awesome.min.css" />
+    <Content Include="Content\Template\assets\css\._plugins.css" />
+    <Content Include="Content\Template\assets\css\._responsive.css" />
+    <Content Include="Content\Template\assets\css\._style.css" />
+    <Content Include="Content\Template\assets\css\bootstrap-theme.min.css" />
+    <Content Include="Content\Template\assets\css\bootstrap.min.css" />
+    <Content Include="Content\Template\assets\css\font-awesome.min.css" />
+    <Content Include="Content\Template\assets\css\fonticons.css" />
+    <Content Include="Content\Template\assets\css\navmenu.css" />
+    <Content Include="Content\Template\assets\css\plugins.css" />
+    <Content Include="Content\Template\assets\css\responsive.css" />
+    <Content Include="Content\Template\assets\css\style.css" />
+    <Content Include="Content\Template\assets\fonts\._fontawesome-webfont.svg" />
+    <Content Include="Content\Template\assets\fonts\._glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Template\assets\fonts\coolvetica_rg.svg" />
+    <Content Include="Content\Template\assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Template\assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Template\assets\fonts\Linearicons-Free.svg" />
+    <Content Include="Content\Template\assets\fonts\opensans-bold.svg" />
+    <Content Include="Content\Template\assets\fonts\opensans-light.svg" />
+    <Content Include="Content\Template\assets\fonts\opensans-regular.svg" />
+    <Content Include="Content\Template\assets\fonts\opensans-semibold.svg" />
+    <Content Include="Content\Template\assets\fonts\stylesheet.css" />
+    <Content Include="Content\Template\assets\images\Alternative.gif" />
+    <Content Include="Content\Template\assets\images\contactbg.jpg" />
+    <Content Include="Content\Template\assets\images\coolautumnover.png" />
+    <Content Include="Content\Template\assets\images\drivingbg.png" />
+    <Content Include="Content\Template\assets\images\homebg.jpg" />
+    <Content Include="Content\Template\assets\images\logo.png" />
+    <Content Include="Content\Template\assets\images\notesBg.jpg" />
+    <Content Include="Content\Template\assets\images\Notice.jpg" />
+    <Content Include="Content\Template\assets\images\overlay.png" />
+    <Content Include="Content\Template\assets\images\r1.jpg" />
+    <Content Include="Content\Template\assets\images\result.jpg" />
+    <Content Include="Content\Template\assets\js\._main.js" />
+    <Content Include="Content\Template\assets\js\._plugins.js" />
+    <Content Include="Content\Template\assets\js\gmaps.min.js" />
+    <Content Include="Content\Template\assets\js\jquery.easypiechart.min.js" />
+    <Content Include="Content\Template\assets\js\jquery.mixitup.min.js" />
+    <Content Include="Content\Template\assets\js\main.js" />
+    <Content Include="Content\Template\assets\js\plugins.js" />
+    <Content Include="Content\Template\assets\js\vendor\._bootstrap.js" />
+    <Content Include="Content\Template\assets\js\vendor\._bootstrap.min.js" />
+    <Content Include="Content\Template\assets\js\vendor\._jquery-1.11.2.min.js" />
+    <Content Include="Content\Template\assets\js\vendor\._modernizr-2.8.3-respond-1.4.2.min.js" />
+    <Content Include="Content\Template\assets\js\vendor\._npm.js" />
+    <Content Include="Content\Template\assets\js\vendor\bootstrap.js" />
+    <Content Include="Content\Template\assets\js\vendor\bootstrap.min.js" />
+    <Content Include="Content\Template\assets\js\vendor\isotope.min.js" />
+    <Content Include="Content\Template\assets\js\vendor\jquery-1.11.2.min.js" />
+    <Content Include="Content\Template\assets\js\vendor\modernizr-2.8.3-respond-1.4.2.min.js" />
+    <Content Include="Content\Template\assets\js\vendor\npm.js" />
+    <Content Include="Content\Template\css\animate.css" />
+    <Content Include="Content\Template\css\global\global.css" />
+    <Content Include="Content\Template\css\SliderCss.css" />
+    <Content Include="Content\Template\css\style.css" />
+    <Content Include="Content\Template\css\theme\gold.css" />
+    <Content Include="Content\Template\css\theme\red.css" />
+    <Content Include="Content\Template\dev-tools\gulpfile.js" />
+    <Content Include="Content\Template\dev-tools\index.js" />
+    <Content Include="Content\Template\img\1920x1080\06.jpg" />
+    <Content Include="Content\Template\img\1920x1080\08.jpg" />
+    <Content Include="Content\Template\img\1920x1080\cover_new1.jpg" />
+    <Content Include="Content\Template\img\1920x1080\cover_new3.jpg" />
+    <Content Include="Content\Template\img\1920x1080\cover_new4.jpg" />
+    <Content Include="Content\Template\img\1920x1080\cover_new5.jpg" />
+    <Content Include="Content\Template\img\1920x1080\cover_new6.jpg" />
+    <Content Include="Content\Template\img\1920x1080\layout_photo.jpg" />
+    <Content Include="Content\Template\img\1920x1080\tp.png" />
+    <Content Include="Content\Template\img\400x550\atanu.jpg" />
+    <Content Include="Content\Template\img\400x550\dev_bg.jpg" />
+    <Content Include="Content\Template\img\400x550\souvik_saha.jpg" />
+    <Content Include="Content\Template\img\400x550\subha.jpg" />
+    <Content Include="Content\Template\img\970x970\annualSportsEvents.jpg" />
+    <Content Include="Content\Template\img\970x970\Events2.jpg" />
+    <Content Include="Content\Template\img\970x970\saraswatiPujoEvents.jpg" />
+    <Content Include="Content\Template\img\magazine1.jpg" />
+    <Content Include="Content\Template\img\menu2.png" />
+    <Content Include="Content\Template\img\mockups\pencil-01.png" />
+    <Content Include="Content\Template\img\new-blink.gif" />
+    <Content Include="Content\Template\img\notes.jpg" />
+    <Content Include="Content\Template\img\notice-board.jpg" />
+    <Content Include="Content\Template\img\notice1.jpg" />
+    <Content Include="Content\Template\img\q1.png" />
+    <Content Include="Content\Template\img\q2.png" />
+    <Content Include="Content\Template\img\r1.jpg" />
+    <Content Include="Content\Template\img\result11.jpg" />
+    <Content Include="Content\Template\img\routine.jpg" />
+    <Content Include="Content\Template\img\student1.jpg" />
+    <Content Include="Content\Template\include\media\fallback.jpg" />
+    <Content Include="Content\Template\include\media\mp4_video.mp4" />
+    <Content Include="Content\Template\js\components\circles.js" />
+    <Content Include="Content\Template\js\components\circles.min.js" />
+    <Content Include="Content\Template\js\components\counter.js" />
+    <Content Include="Content\Template\js\components\counter.min.js" />
+    <Content Include="Content\Template\js\components\equal-height.js" />
+    <Content Include="Content\Template\js\components\equal-height.min.js" />
+    <Content Include="Content\Template\js\components\faq.js" />
+    <Content Include="Content\Template\js\components\faq.min.js" />
+    <Content Include="Content\Template\js\components\google-map.js" />
+    <Content Include="Content\Template\js\components\google-map.min.js" />
+    <Content Include="Content\Template\js\components\google-map2.js" />
+    <Content Include="Content\Template\js\components\google-map2.min.js" />
+    <Content Include="Content\Template\js\components\header-sticky.js" />
+    <Content Include="Content\Template\js\components\header-sticky.min.js" />
+    <Content Include="Content\Template\js\components\magnific-popup.js" />
+    <Content Include="Content\Template\js\components\magnific-popup.min.js" />
+    <Content Include="Content\Template\js\components\masonry.js" />
+    <Content Include="Content\Template\js\components\masonry.min.js" />
+    <Content Include="Content\Template\js\components\parallax.js" />
+    <Content Include="Content\Template\js\components\parallax.min.js" />
+    <Content Include="Content\Template\js\components\portfolio-3-col.js" />
+    <Content Include="Content\Template\js\components\portfolio-3-col.min.js" />
+    <Content Include="Content\Template\js\components\portfolio-4-col-slider.js" />
+    <Content Include="Content\Template\js\components\portfolio-4-col-slider.min.js" />
+    <Content Include="Content\Template\js\components\progress-bar.js" />
+    <Content Include="Content\Template\js\components\progress-bar.min.js" />
+    <Content Include="Content\Template\js\components\scrollbar.js" />
+    <Content Include="Content\Template\js\components\scrollbar.min.js" />
+    <Content Include="Content\Template\js\components\swiper.js" />
+    <Content Include="Content\Template\js\components\swiper.min.js" />
+    <Content Include="Content\Template\js\components\tab.js" />
+    <Content Include="Content\Template\js\components\tab.min.js" />
+    <Content Include="Content\Template\js\components\wow.js" />
+    <Content Include="Content\Template\js\components\wow.min.js" />
+    <Content Include="Content\Template\js\global.js" />
+    <Content Include="Content\Template\js\global.min.js" />
+    <Content Include="Content\Template\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\Template\vendor\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Template\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\Template\vendor\bootstrap\js\npm.js" />
+    <Content Include="Content\Template\vendor\circles.min.js" />
+    <Content Include="Content\Template\vendor\counterup.min.js" />
+    <Content Include="Content\Template\vendor\cubeportfolio\css\cubeportfolio.min.css" />
+    <Content Include="Content\Template\vendor\cubeportfolio\img\cbp-sprite.png" />
+    <Content Include="Content\Template\vendor\cubeportfolio\js\jquery.cubeportfolio.min.js" />
+    <Content Include="Content\Template\vendor\jquery.appear.min.js" />
+    <Content Include="Content\Template\vendor\jquery.back-to-top.min.js" />
+    <Content Include="Content\Template\vendor\jquery.equal-height.min.js" />
+    <Content Include="Content\Template\vendor\jquery.masonry.pkgd.min.js" />
+    <Content Include="Content\Template\vendor\jquery.migrate.min.js" />
+    <Content Include="Content\Template\vendor\jquery.min.js" />
+    <Content Include="Content\Template\vendor\jquery.parallax.min.js" />
+    <Content Include="Content\Template\vendor\jquery.smooth-scroll.min.js" />
+    <Content Include="Content\Template\vendor\jquery.wow.min.js" />
+    <Content Include="Content\Template\vendor\magnific-popup\jquery.magnific-popup.min.js" />
+    <Content Include="Content\Template\vendor\magnific-popup\magnific-popup.css" />
+    <Content Include="Content\Template\vendor\masonry\imagesloaded.pkgd.min.js" />
+    <Content Include="Content\Template\vendor\masonry\jquery.masonry.pkgd.min.js" />
+    <Content Include="Content\Template\vendor\scrollbar\jquery.scrollbar.min.js" />
+    <Content Include="Content\Template\vendor\scrollbar\scrollbar.min.css" />
+    <Content Include="Content\Template\vendor\swiper\swiper.jquery.min.js" />
+    <Content Include="Content\Template\vendor\swiper\swiper.min.css" />
+    <Content Include="Content\Template\vendor\themify\fonts\themify.svg" />
+    <Content Include="Content\Template\vendor\themify\themify.css" />
+    <Content Include="Content\Template\vendor\vidbg.min.js" />
+    <Content Include="Content\Template\vendor\waypoint.min.js" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\themes\my_style.css" />
+    <Content Include="Global.asax" />
+    <Content Include="logo\fkths_icon2.jpg" />
+    <Content Include="logo\fkths_logo.png" />
+    <Content Include="logo\fkths_logo_short_blackEdited.png" />
+    <Content Include="Content\Template\assets\.DS_Store" />
+    <Content Include="Content\Template\assets\._.DS_Store" />
+    <Content Include="Content\Template\assets\._css" />
+    <Content Include="Content\Template\assets\._fonts" />
+    <Content Include="Content\Template\assets\._images" />
+    <Content Include="Content\Template\assets\._js" />
+    <Content Include="Content\Template\assets\css\.DS_Store" />
+    <Content Include="Content\Template\assets\css\._.DS_Store" />
+    <Content Include="Content\Template\assets\css\._bootstrap-theme.css.map" />
+    <Content Include="Content\Template\assets\css\._bootstrap.css.map" />
+    <Content Include="Content\Template\assets\fonts\._fontawesome-webfont.eot" />
+    <Content Include="Content\Template\assets\fonts\._fontawesome-webfont.ttf" />
+    <Content Include="Content\Template\assets\fonts\._fontawesome-webfont.woff" />
+    <Content Include="Content\Template\assets\fonts\._fontawesome-webfont.woff2" />
+    <Content Include="Content\Template\assets\fonts\._FontAwesome.otf" />
+    <Content Include="Content\Template\assets\fonts\._glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Template\assets\fonts\._glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\Template\assets\fonts\._glyphicons-halflings-regular.woff" />
+    <Content Include="Content\Template\assets\fonts\coolvetica_rg.eot" />
+    <Content Include="Content\Template\assets\fonts\coolvetica_rg.ttf" />
+    <Content Include="Content\Template\assets\fonts\coolvetica_rg.woff" />
+    <Content Include="Content\Template\assets\fonts\coolvetica_rg.woff2" />
+    <Content Include="Content\Template\assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Template\assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Template\assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Template\assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\Template\assets\fonts\FontAwesome.otf" />
+    <Content Include="Content\Template\assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Template\assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\Template\assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\Template\assets\fonts\Linearicons-Free.eot" />
+    <Content Include="Content\Template\assets\fonts\Linearicons-Free.ttf" />
+    <Content Include="Content\Template\assets\fonts\Linearicons-Free.woff" />
+    <Content Include="Content\Template\assets\fonts\Linearicons-Free.woff2" />
+    <Content Include="Content\Template\assets\fonts\opensans-bold.eot" />
+    <Content Include="Content\Template\assets\fonts\opensans-bold.ttf" />
+    <Content Include="Content\Template\assets\fonts\opensans-bold.woff" />
+    <Content Include="Content\Template\assets\fonts\opensans-bold.woff2" />
+    <Content Include="Content\Template\assets\fonts\opensans-light.eot" />
+    <Content Include="Content\Template\assets\fonts\opensans-light.ttf" />
+    <Content Include="Content\Template\assets\fonts\opensans-light.woff" />
+    <Content Include="Content\Template\assets\fonts\opensans-light.woff2" />
+    <Content Include="Content\Template\assets\fonts\opensans-regular.eot" />
+    <Content Include="Content\Template\assets\fonts\opensans-regular.ttf" />
+    <Content Include="Content\Template\assets\fonts\opensans-regular.woff" />
+    <Content Include="Content\Template\assets\fonts\opensans-regular.woff2" />
+    <Content Include="Content\Template\assets\fonts\opensans-semibold.eot" />
+    <Content Include="Content\Template\assets\fonts\opensans-semibold.ttf" />
+    <Content Include="Content\Template\assets\fonts\opensans-semibold.woff" />
+    <Content Include="Content\Template\assets\fonts\opensans-semibold.woff2" />
+    <Content Include="Content\Template\assets\js\.DS_Store" />
+    <Content Include="Content\Template\assets\js\._.DS_Store" />
+    <Content Include="Content\Template\assets\js\._vendor" />
+    <Content Include="Content\Template\dev-tools\package.json" />
+    <Content Include="Content\Template\include\media\webm_video.webm" />
+    <Content Include="Content\Template\scss\base\_base.scss" />
+    <Content Include="Content\Template\scss\base\_selection.scss" />
+    <Content Include="Content\Template\scss\components\_button.scss" />
+    <Content Include="Content\Template\scss\components\_clients.scss" />
+    <Content Include="Content\Template\scss\components\_faq.scss" />
+    <Content Include="Content\Template\scss\components\_form-input.scss" />
+    <Content Include="Content\Template\scss\components\_icon.scss" />
+    <Content Include="Content\Template\scss\global\global.scss" />
+    <Content Include="Content\Template\scss\global\global\_global-colors.scss" />
+    <Content Include="Content\Template\scss\global\global\_global-helpers.scss" />
+    <Content Include="Content\Template\scss\global\global\_global-responsive.scss" />
+    <Content Include="Content\Template\scss\global\global\_global-spacing.scss" />
+    <Content Include="Content\Template\scss\global\global\_global.scss" />
+    <Content Include="Content\Template\scss\global\_global.scss" />
+    <Content Include="Content\Template\scss\gui\_mockup.scss" />
+    <Content Include="Content\Template\scss\gui\_plan.scss" />
+    <Content Include="Content\Template\scss\gui\_process.scss" />
+    <Content Include="Content\Template\scss\gui\_promo-block.scss" />
+    <Content Include="Content\Template\scss\gui\_scroll-to-section.scss" />
+    <Content Include="Content\Template\scss\gui\_team.scss" />
+    <Content Include="Content\Template\scss\gui\_video.scss" />
+    <Content Include="Content\Template\scss\layout\_footer.scss" />
+    <Content Include="Content\Template\scss\layout\_header-v2.scss" />
+    <Content Include="Content\Template\scss\layout\_header.scss" />
+    <Content Include="Content\Template\scss\mixins\_animation-delay.scss" />
+    <Content Include="Content\Template\scss\mixins\_animation.scss" />
+    <Content Include="Content\Template\scss\mixins\_backface-visibility.scss" />
+    <Content Include="Content\Template\scss\mixins\_background.scss" />
+    <Content Include="Content\Template\scss\mixins\_before-after.scss" />
+    <Content Include="Content\Template\scss\mixins\_border-radius.scss" />
+    <Content Include="Content\Template\scss\mixins\_breakpoints.scss" />
+    <Content Include="Content\Template\scss\mixins\_button.scss" />
+    <Content Include="Content\Template\scss\mixins\_child.scss" />
+    <Content Include="Content\Template\scss\mixins\_clearfix.scss" />
+    <Content Include="Content\Template\scss\mixins\_container.scss" />
+    <Content Include="Content\Template\scss\mixins\_cubic-transition.scss" />
+    <Content Include="Content\Template\scss\mixins\_display-center.scss" />
+    <Content Include="Content\Template\scss\mixins\_font.scss" />
+    <Content Include="Content\Template\scss\mixins\_gradients.scss" />
+    <Content Include="Content\Template\scss\mixins\_horizontal-center-align.scss" />
+    <Content Include="Content\Template\scss\mixins\_hover.scss" />
+    <Content Include="Content\Template\scss\mixins\_keyframes.scss" />
+    <Content Include="Content\Template\scss\mixins\_overlay.scss" />
+    <Content Include="Content\Template\scss\mixins\_perspective.scss" />
+    <Content Include="Content\Template\scss\mixins\_placeholder.scss" />
+    <Content Include="Content\Template\scss\mixins\_position.scss" />
+    <Content Include="Content\Template\scss\mixins\_rotate.scss" />
+    <Content Include="Content\Template\scss\mixins\_selection.scss" />
+    <Content Include="Content\Template\scss\mixins\_size.scss" />
+    <Content Include="Content\Template\scss\mixins\_stroke-dashoffset.scss" />
+    <Content Include="Content\Template\scss\mixins\_theme-icons.scss" />
+    <Content Include="Content\Template\scss\mixins\_transform-origin.scss" />
+    <Content Include="Content\Template\scss\mixins\_transform-scale.scss" />
+    <Content Include="Content\Template\scss\mixins\_transition.scss" />
+    <Content Include="Content\Template\scss\mixins\_translate3d.scss" />
+    <Content Include="Content\Template\scss\style.scss" />
+    <Content Include="Content\Template\scss\theme\gold.scss" />
+    <Content Include="Content\Template\scss\theme\red.scss" />
+    <Content Include="Content\Template\scss\theme\theme\_gold.scss" />
+    <Content Include="Content\Template\scss\theme\theme\_red.scss" />
+    <Content Include="Content\Template\scss\theme\_gold.scss" />
+    <Content Include="Content\Template\scss\theme\_red.scss" />
+    <Content Include="Content\Template\scss\vendors\_back-to-top.scss" />
+    <Content Include="Content\Template\scss\vendors\_cubeportfolio.scss" />
+    <Content Include="Content\Template\scss\vendors\_gmap.scss" />
+    <Content Include="Content\Template\scss\vendors\_swiper.scss" />
+    <Content Include="Content\Template\scss\_mixins.scss" />
+    <Content Include="Content\Template\scss\_variables.scss" />
+    <Content Include="Content\Template\vendor\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Template\vendor\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\Template\vendor\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\Template\vendor\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\Template\vendor\jquery.min.map" />
+    <Content Include="Content\Template\vendor\themify\fonts\themify.eot" />
+    <Content Include="Content\Template\vendor\themify\fonts\themify.ttf" />
+    <Content Include="Content\Template\vendor\themify\fonts\themify.woff" />
+    <None Include="Properties\PublishProfiles\Final_FKTHS_Project.pubxml" />
+    <None Include="Properties\PublishProfiles\school test.pubxml" />
+    <None Include="Properties\PublishProfiles\School_Final.pubxml" />
+    <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.8.2.js" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.8.24.js" />
+    <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-2.2.0.debug.js" />
+    <Content Include="Scripts\knockout-2.2.0.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="ToppersPic\student.png" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\myLayout_Admin.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\AddTeacher.cshtml" />
+    <Content Include="Views\Admin\TeacherAdded.cshtml" />
+    <Content Include="Views\Admin\TeacherNotAdded.cshtml" />
+    <Content Include="Views\Admin\ChangeTeacherStatus.cshtml" />
+    <Content Include="Views\Admin\UpdateTeacherByID.cshtml" />
+    <Content Include="Views\Shared\myLayout_Teacher.cshtml" />
+    <Content Include="Views\Teacher\Success.cshtml" />
+    <Content Include="Views\Teacher\Index.cshtml" />
+    <Content Include="Views\Teacher\abc.cshtml" />
+    <Content Include="Views\Teacher\NotesUpload.cshtml" />
+    <Content Include="Views\Shared\_LayoutPublic.cshtml" />
+    <Content Include="Views\Admin\TeacherUpdated.cshtml" />
+    <Content Include="Views\Admin\TeacherNotUpdated.cshtml" />
+    <Content Include="Views\Admin\UpdateTeacherProfile.cshtml" />
+    <Content Include="Views\Shared\MyLayout_studentProfile.cshtml" />
+    <Content Include="Views\Admin\RoutineUpload.cshtml" />
+    <Content Include="Views\RegisteredView\NotesDownloads.cshtml" />
+    <Content Include="Views\RegisteredView\FileDownloaded.cshtml" />
+    <Content Include="Views\RegisteredView\NoteDwnld.cshtml" />
+    <Content Include="Views\RegisteredView\RoutineDownload.cshtml" />
+    <Content Include="Views\RegisteredView\RoutinedwnldPage.cshtml" />
+    <Content Include="Views\RegisteredView\Success.cshtml" />
+    <Content Include="Views\Shared\_myLayout_Student.cshtml" />
+    <Content Include="Views\PublicView\Login.cshtml" />
+    <Content Include="Views\PublicView\UpdatePasswordTeacher.cshtml" />
+    <Content Include="Views\Shared\_myLayout_Login.cshtml" />
+    <Content Include="Views\Shared\_myLayout_UpdatePassword.cshtml" />
+    <Content Include="Views\RegisteredView\StudentHome.cshtml" />
+    <Content Include="Views\Admin\AddStudent.cshtml" />
+    <Content Include="Views\Admin\StudentAdded.cshtml" />
+    <Content Include="Views\Admin\StudentNotAdded.cshtml" />
+    <Content Include="Views\Admin\UpdateStudentByID.cshtml" />
+    <Content Include="Views\Teacher\StudentAdd.cshtml" />
+    <Content Include="Views\Admin\AllStudent.cshtml" />
+    <Content Include="Views\Admin\GetAllStudentList.cshtml" />
+    <Content Include="Views\RegisteredView\NotesNotFound.cshtml" />
+    <Content Include="Views\Admin\AddRemoveSection.cshtml" />
+    <Content Include="Views\Admin\AdminAdded.cshtml" />
+    <Content Include="Views\AdminLogin\LoginAdmin.cshtml" />
+    <Content Include="Views\AdminLogin\UpdatedPasswordAdmin.cshtml" />
+    <Content Include="Views\Shared\_mylayout_UpdatePasswordAdmin.cshtml" />
+    <Content Include="Views\PublicView\Updated.cshtml" />
+    <Content Include="Views\Admin\UpdateAdminByID.cshtml" />
+    <Content Include="Views\Admin\UpdateAdminProfile.cshtml" />
+    <Content Include="Views\Admin\AdminUpdated.cshtml" />
+    <Content Include="Views\Admin\AdminNotUpdated.cshtml" />
+    <Content Include="Views\PublicView\GetDevelopers.cshtml" />
+    <Content Include="Views\Admin\AdminNotAdded.cshtml" />
+    <Content Include="Views\AdminLogin\NotUpdatedPasswordAdmin.cshtml" />
+    <Content Include="Views\Teacher\UploadForGallery.cshtml" />
+    <Content Include="Views\PublicView\ViewGallery.cshtml" />
+    <Content Include="Views\Teacher\DeleteNotes.cshtml" />
+    <Content Include="Views\Admin\UpdateStudentProfile.cshtml" />
+    <Content Include="Views\Admin\ChangeResultStatusToFail.cshtml" />
+    <Content Include="Views\Teacher\UploadNews.cshtml" />
+    <Content Include="Views\PublicView\AllTeachers.cshtml" />
+    <Content Include="Views\PublicView\News.cshtml" />
+    <Content Include="Views\Admin\UploadToppers.cshtml" />
+    <Content Include="Views\Admin\AddAdmin.cshtml" />
+    <Content Include="Views\Shared\_LayoutWelcome.cshtml" />
+    <Content Include="Views\PublicView\PublicView.cshtml" />
+    <Content Include="Views\Admin\ShowTeachersList.cshtml" />
+    <Content Include="Views\Admin\Fail.cshtml" />
+    <Content Include="Views\Admin\Success.cshtml" />
+    <Content Include="Views\Teacher\GetAllStudentList.cshtml" />
+    <Content Include="Views\Teacher\AllStudent.cshtml" />
+    <Content Include="Views\Admin\UpdatePasswordAdmin.cshtml" />
+    <Content Include="Views\Teacher\UpdatePassworTeacher.cshtml" />
+    <Content Include="Views\PublicView\ForgetPassword.cshtml" />
+    <Content Include="Views\PublicView\PasswordUpdated.cshtml" />
+    <Content Include="Views\AdminLogin\ForgetPasswordAdmin.cshtml" />
+    <Content Include="Views\AdminLogin\PasswordUpdated.cshtml" />
+    <Content Include="Views\Shared\_myLayoutForgetPassword.cshtml" />
+    <Content Include="Views\AdminLogin\UpdatePasswordAdmin.cshtml" />
+    <Content Include="Views\Admin\ChangeAcademicYear.cshtml" />
+    <Content Include="Views\Admin\AllPassOutStudent.cshtml" />
+    <Content Include="Views\Admin\GetLeftStudendts.cshtml" />
+    <Content Include="Views\Admin\Students.cshtml" />
+    <Content Include="Views\Teacher\UpdateNews.cshtml" />
+    <Content Include="Views\Teacher\EventsUpdateTable.cshtml" />
+    <Content Include="Views\Admin\NotUpdated.cshtml" />
+    <Content Include="Views\PublicView\NotUpdated.cshtml" />
+    <Content Include="Views\Admin\AddAlumni.cshtml" />
+    <Content Include="Views\Admin\AlumniUpdate.cshtml" />
+    <Content Include="Views\Admin\AlumniUpdateTable.cshtml" />
+    <Content Include="Views\PublicView\ViewAlumni.cshtml" />
+    <Content Include="Views\RegisteredView\StudentProfile.cshtml" />
+    <Content Include="Views\Admin\ShowAllFeedback.cshtml" />
+    <Content Include="Views\Teacher\Fail.cshtml" />
+    <Content Include="Views\GetDevelopers.cshtml" />
+    <Content Include="Views\Admin\GetDevelopers.cshtml" />
+    <Content Include="Views\AdminLogin\GetDevelopers.cshtml" />
+    <Content Include="Views\RegisteredView\GetDevelopers.cshtml" />
+    <Content Include="Views\Teacher\GetDevelopers.cshtml" />
+    <Content Include="Views\Admin\Error.cshtml" />
+    <Content Include="Views\Shared\_myLayoutError_teacher.cshtml" />
+    <Content Include="Views\Shared\_myLayoutError_admin.cshtml" />
+    <Content Include="Views\RegisteredView\Error.cshtml" />
+    <Content Include="Views\Teacher\Error.cshtml" />
+    <Content Include="Views\Shared\_myLayoutError_student.cshtml" />
+    <Content Include="Views\AdminLogin\Error.cshtml" />
+    <Content Include="Views\Shared\_myLayoutError_loginT.cshtml" />
+    <Content Include="Views\Shared\_myLayoutError_loginA.cshtml" />
+    <Content Include="Views\Admin\Addoc.cshtml" />
+    <Content Include="Views\Admin\OCUpdate.cshtml" />
+    <Content Include="Views\Admin\ocUpdateTable.cshtml" />
+    <Content Include="Views\PublicView\ViewOC.cshtml" />
+    <Content Include="Views\Teacher\ViewAllPhotos.cshtml" />
+    <Content Include="Views\PublicView\Error.cshtml" />
+    <Content Include="Views\Shared\_myLayoutError_public.cshtml" />
+    <Content Include="Views\Admin\ViewAllPhotos.cshtml" />
+    <Content Include="Views\Admin\EventsUpdateTable.cshtml" />
+    <Content Include="Views\Admin\NoticeUpload.cshtml" />
+    <Content Include="Views\Admin\ViewAllNotices.cshtml" />
+    <Content Include="Views\PublicView\Index.cshtml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Gallery\" />
+    <Folder Include="News\" />
+    <Folder Include="Notes\" />
+    <Folder Include="Notices\" />
+    <Folder Include="Routines\" />
+    <Folder Include="TeacherImages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>21955</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:21955/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

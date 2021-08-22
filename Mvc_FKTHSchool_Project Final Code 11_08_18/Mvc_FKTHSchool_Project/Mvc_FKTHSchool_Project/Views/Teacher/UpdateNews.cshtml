@@ -1,0 +1,151 @@
+﻿@model Mvc_FKTHSchool_Project.Models.NewsModel
+
+@{
+    ViewBag.Title = "UpdateNews";
+    Layout = "~/Views/Shared/myLayout_Teacher.cshtml";
+}
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var datetoday = new Date();
+        $("#newsDate").datepicker({
+            dateFormat: "mm/dd/yy",
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "-60:+0"
+        });
+
+    })
+</script>
+
+
+<div class="g-bg-color--sky-light">
+    <div class="container g-padding-y-20--xs g-padding-y-40--sm">
+        <center style="color:red; font-size:25px;"> @ViewBag.Error</center>
+        @using (Html.BeginForm("UpdateNews", "Teacher", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+
+
+                <center><legend><h2><b>Update Events</b></h2></legend></center>
+
+                <table align="center" style="width:50%">
+
+
+                    <tr>
+                        <td style="font-size:23px">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.newsID, new { style = "font-size: 17px;" })
+                            </div>
+                        </td>
+                        <td style="font-size:23px">
+                            <div class="g-margin-b-20--xs">
+                                @Html.TextBox("newsID", (Int32)@ViewBag.eID, new { @class = "form-control s-form-v2__input g-radius--50", @readonly = "readonly" })
+
+                            </div>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td style="font-size:23px">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.teacherID, new { style = "font-size: 17px;" })
+                            </div>
+                        </td>
+                        <td style="font-size:23px">
+                            <div class="g-margin-b-20--xs">
+                                @Html.TextBox("teacherID", @User.Identity.Name, new { @class = "form-control s-form-v2__input g-radius--50", @readonly = "readonly" })
+
+                            </div>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td style="font-size:23px">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.newsTitle, new { style = "font-size: 17px;" })
+                            </div>
+                        </td>
+                        <td style="font-size:23px">
+                            <div class="g-margin-b-20--xs">
+                                @Html.TextBox("newsTitle", (string)@ViewBag.eTitle, new { @class = "form-control s-form-v2__input g-radius--50", placeholder = "Not more than 30 characters", maxlength = "30" })
+
+                            </div>
+                        </td>
+                        <td style="font-size:23px">
+                            <b style="color:red;">@Html.ValidationMessageFor(model => model.newsTitle)</b>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-size:23px">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.newsDescription, new { style = "font-size: 17px;" })
+                            </div>
+                        </td>
+                        <td style="font-size:23px">
+                            <div class="g-margin-b-20--xs">
+                                @Html.TextArea("newsDescription", (string)@ViewBag.eDes, new { @class = "form-control s-form-v2__input g-radius--50", placeholder = "Not more than 300 characters", maxlength = "300", @rows = "5" })
+
+                            </div>
+                        </td>
+                        <td style="font-size:23px">
+                            <b style="color:red;">@Html.ValidationMessageFor(model => model.newsDescription)</b>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-size:23px">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.newsDate, new { style = "font-size: 17px;" })
+                            </div>
+                        </td>
+                        <td style="font-size:23px">
+                            <div class="g-margin-b-20--xs">
+                                @*@Html.TextBox("newsDate", (string)@ViewBag.eDate, new { @class = "form-control s-form-v2__input g-radius--50", placeholder = "dd/mm/yyyy", @type = "date" })*@
+                                @Html.TextBox("newsDate", (string)@ViewBag.eDate, new { @class = "form-control s-form-v2__input g-radius--50", placeholder = "mm/dd/yyyy", @readonly = "readonly" })
+                                <p style="color:darkgreen"><b>Event's Date may not be today's Date</b></p>
+                            </div>
+                        </td>
+                        <td style="font-size:23px">
+                            <b style="color:red;">@Html.ValidationMessageFor(model => model.newsDate)</b>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-size:23px">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.file, new { style = "font-size: 17px;" })
+                            </div>
+                        </td>
+                        <td style="font-size:23px">
+                            <div class="g-margin-b-20--xs">
+                                @Html.TextBox("file", (string)@ViewBag.eImg, new { type = "file", @class = "form-control s-form-v2__input g-radius--50", maxlength = "100" })
+
+                            </div>
+                        </td>
+                        <td style="font-size:23px">
+                            <b style="color:red;">@Html.ValidationMessageFor(model => model.file)</b>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td colspan="3">
+                            <button type="submit" value="Update" class="g-text-center--xs s-btn s-btn--md s-btn--primary-bg g-radius--50 g-padding-x-80--xs">Update</button>
+                        </td>
+                </table>
+
+            </fieldset>
+        }
+</div>
+</div>

@@ -1,0 +1,299 @@
+﻿@model Mvc_FKTHSchool_Project.Models.UpdateTeacherModel
+
+@{
+    ViewBag.Title = "UpdateTeacherProfile";
+    Layout = "~/Views/Shared/myLayout_Admin.cshtml";
+}
+
+@*<h2>UpdateTeacherProfile</h2>*@
+@*<link href="~/Content/themes/my_style.css" rel="stylesheet" />*@
+<div class="g-bg-color--sky-light">
+    <div class="container g-padding-y-20--xs g-padding-y-40--sm">
+        <center><i style="font-size:25px;color:red;">@ViewBag.errmsg @ViewBag.Error</i></center>
+      @using (Html.BeginForm("UpdateTeacherProfile", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+      {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+              <center><legend><h2><b>EDIT TEACHER</b></h2></legend></center>  
+              
+                            <table align="center" style="width:80%;">
+                                <tr>
+                                    <td>
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.teacherID, new { style = "font-size: 17px;" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="g-margin-b-20--xs">
+                                            <div class="editor-field">
+                                                @Html.TextBox("teacherID", (Int32)ViewBag.id, new { @class = "form-control s-form-v2__input g-radius--50", @readonly = "readonly" })
+                                                @*@ViewBag.id*@
+                                            </div>
+                                   </div>
+                                     </td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.teacherName, new { style = "font-size: 17px;" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="g-margin-b-20--xs">
+                                            <div class="editor-field">
+                                                @*@Html.EditorFor(model => model.teacherName)*@
+                                                @Html.TextBox("teacherName", (string)ViewBag.name, new { @class = "form-control s-form-v2__input g-radius--50" })
+                                                @*@Html.TextBoxFor(model => model.teacherAadhar, new { @class = "form-control s-form-v2__input g-radius--50" })*@
+
+                                            </div>
+                                            </div>
+                                    </td>
+                                    <td>
+                                        <b style="color:red;">@Html.ValidationMessageFor(model => model.teacherName)</b>
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>
+                                        
+                                            <div class="editor-label">
+                                                @Html.LabelFor(model => model.teacherDesignation, new { style = "font-size: 17px;" })
+                                            </div>
+                                            
+                                    </td>
+                                    <td>
+                                        <div class="g-margin-b-20--xs">
+                                            <div class="editor-field">
+                                                @Html.TextBox("teacherDesignation", (string)ViewBag.designation, new { @class = "form-control s-form-v2__input g-radius--50" })
+                                                @*@Html.EditorFor(model => model.teacherDesignation)*@
+                                               </div>
+                                         </div>
+                                    </td>
+                                    <td>
+                                        <b style="color:red;"> @Html.ValidationMessageFor(model => model.teacherDesignation)</b>
+</td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>
+
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.TeacherQualification, new { style = "font-size: 17px;" })
+                                        </div>
+
+                                    </td>
+                                    <td>
+                                        <div class="g-margin-b-20--xs">
+                                            <div class="editor-field">
+                                                @Html.TextBox("TeacherQualification", (string)ViewBag.qual, new { @class = "form-control s-form-v2__input g-radius--50" })
+                                                @*@Html.EditorFor(model => model.teacherDesignation)*@
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <b style="color:red;"> @Html.ValidationMessageFor(model => model.TeacherQualification)</b>
+                                    </td>
+                                </tr>
+
+
+
+
+
+
+                                <tr>
+                                    <td>
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.subjectSpecilization, new { style = "font-size: 17px;" })
+                                        </div>
+                                    </td>
+                                    <td >
+                                        <div class="g-margin-b-20--xs">
+
+                                            <div class="editor-field">
+                                                @Html.TextBox("subjectSpecilization", (string)ViewBag.specialisation, new { @class = "form-control s-form-v2__input g-radius--50" })
+                                                @*@Html.EditorFor(model => model.subjectSpecilization)*@
+
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <b style="color:red;"> @Html.ValidationMessageFor(model => model.subjectSpecilization)</b>
+</td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.teacherAddress, new { style = "font-size: 17px;" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="g-margin-b-20--xs">
+                                            <div class="editor-field">
+                                                @Html.TextBox("teacherAddress", (string)ViewBag.address, new { @class = "form-control s-form-v2__input g-radius--50" })
+                                                @*@Html.EditorFor(model => model.teacherAddress)*@
+
+                                            </div>
+                                            </div>
+</td>
+                                    <td>
+                                        <b style="color:red;"> @Html.ValidationMessageFor(model => model.teacherAddress)</b>
+</td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.teacherMobileNo, new { style = "font-size: 17px;" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="g-margin-b-20--xs">
+                                            <div class="editor-field">
+                                                @Html.TextBox("teacherMobileNo", (string)ViewBag.mbl, new { @class = "form-control s-form-v2__input g-radius--50" })
+                                                @*@Html.EditorFor(model => model.teacherMobileNo)*@
+
+                                            </div>
+                                            </div>
+</td>
+                                    <td>
+                                        <b style="color:red;"> @Html.ValidationMessageFor(model => model.teacherMobileNo)</b>
+</td>
+                                </tr>
+
+
+
+                                <tr>
+                                    <td>
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.teacherEmailID, new { style = "font-size: 17px;" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="g-margin-b-20--xs">
+                                            <div class="editor-field">
+                                                @*@Html.EditorFor(model => model.teacherEmailID)*@
+                                                @Html.TextBox("teacherEmailID", (string)ViewBag.email, new { @class = "form-control s-form-v2__input g-radius--50" })
+
+                                            </div>
+                                            </div>
+                                    </td>
+                                    <td>
+                                        <b style="color:red;">@Html.ValidationMessageFor(model => model.teacherEmailID)</b>
+                                    </td>
+                                </tr>
+
+
+
+
+
+
+
+                                <tr>
+                                    <td>
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.teacherAadhar, new { style = "font-size: 17px;" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="g-margin-b-20--xs">
+                                            <div class="editor-field">
+                                                @*@Html.EditorFor(model => model.teacherEmailID)*@
+                                                @Html.TextBox("teacherAadhar", (string)ViewBag.aad, new { @class = "form-control s-form-v2__input g-radius--50" })
+
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <b style="color:red;">@Html.ValidationMessageFor(model => model.teacherAadhar)</b>
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.teacherPAN, new { style = "font-size: 17px;" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="g-margin-b-20--xs">
+                                            <div class="editor-field">
+                                                @*@Html.EditorFor(model => model.teacherEmailID)*@
+                                                @Html.TextBox("teacherPAN", (string)ViewBag.panNumber, new { @class = "form-control s-form-v2__input g-radius--50" })
+
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <b style="color:red;">@Html.ValidationMessageFor(model => model.teacherPAN)</b>
+                                    </td>
+                                </tr>
+
+
+
+                                <tr>
+                                    <td>
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.teacherStatus, new { style = "font-size: 17px;" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="g-margin-b-20--xs">
+                                            <div class="editor-field">
+                                                @*@Html.EditorFor(model => model.teacherEmailID)*@
+                                                @*@Html.TextBox("teacherEmailID", (string)ViewBag.email)*@
+                                                @Html.DropDownList("teacherStatus", ViewBag.status as List<SelectListItem>, new { @class = "form-control s-form-v2__input g-radius--50" })
+
+                                            </div>
+                                            </div>
+</td>
+                                    <td>
+                                        <b style="color:red;">@Html.ValidationMessageFor(model => model.teacherStatus)</b>
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.imageAddress, new { style = "font-size: 17px;" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="g-margin-b-20--xs">
+                                            <input type="file" name="imageAddress" class="form-control s-form-v2__input g-radius--50" placeholder="*image" value="@Request["imageAddress"]" />
+                                        </div>
+                                    </td>
+
+                                 
+
+                                </tr>
+
+                                
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <p>
+                                            <button type="submit" value="Add Teacher" class="g-text-center--xs s-btn s-btn--md s-btn--primary-bg g-radius--50 ">EDIT TEACHER PROFILE</button>
+                                        </p>
+                                    </td>
+                                </tr>
+
+
+
+
+                            </table>
+                      
+</fieldset>
+        }
+        </div>
+</div>

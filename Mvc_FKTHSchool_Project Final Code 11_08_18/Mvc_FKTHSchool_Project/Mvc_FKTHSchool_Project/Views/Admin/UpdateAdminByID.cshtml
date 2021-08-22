@@ -1,0 +1,117 @@
+﻿@model Mvc_FKTHSchool_Project.Models.UpdateAdminByIDModel
+
+@{
+    ViewBag.Title = "UpdateAdminByID";
+    Layout = "~/Views/Shared/myLayout_Admin.cshtml";
+}
+
+<div class="g-bg-color--sky-light">
+    <center class="g-padding-y-20--xs"><b><i style="font-size:25px;color:red;">@ViewBag.err</i></b></center>
+    <div class="container g-padding-y-20--xs g-padding-y-20--sm">
+        @*<h2>UpdateTeacherByID</h2>*@
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+
+
+            <fieldset>
+                <center><legend><h2>Update Admin Profile</h2></legend></center>
+
+               
+
+                            <table align="center">
+                                <tr>
+                                    @*<td>
+                                            <div class="editor-label">
+                                                @Html.LabelFor(model => model.teacherID)
+                                            </div>
+                                        </td>*@
+                                    <td>
+                                        <div class="g-margin-b-20--xs">
+                                            <div class="editor-label input-group">
+                                                @*@Html.EditorFor(model => model.teacherID)*@
+                                                @Html.TextBoxFor(model => model.adminID, new { @class = "form-control s-form-v2__input g-radius--left-50", placeholder = "*Enter Admin ID", maxlength="2" })
+                                                @*<input type="text" class="form-control s-form-v2__input g-radius--left-50" name="teacherID" placeholder="Enter Teacher ID">*@
+                                                <span class="input-group-btn">
+                                                    <button type="submit" class="s-btn s-btn-icon--md s-btn-icon--white-brd s-btn--white-brd g-radius--right-50" style="background-color:aqua;"><i class="ti-arrow-right"></i></button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    </tr>
+                                <tr>
+                                    <td style="color:red;">
+                                        <center>    @Html.ValidationMessageFor(model => model.adminID)</center>
+                                    </td>
+                                </tr>
+
+                                @*<tr>
+                                        <td colspan="2" class="input-group">
+                                            <p>
+                                                <button type="submit" value="PROCEED" class="g-text-center--xs s-btn s-btn--md s-btn--primary-bg g-radius--50 g-padding-x-80--xs">PROCEED</button>
+                                            </p>
+
+
+                                        </td>
+                                    </tr>*@
+
+
+                            </table>
+                      
+                   
+           
+            </fieldset>
+
+        }
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<h2>UpdateAdminByID</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>UpdateAdminByIDModel</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.adminID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.adminID)
+            @Html.ValidationMessageFor(model => model.adminID)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@

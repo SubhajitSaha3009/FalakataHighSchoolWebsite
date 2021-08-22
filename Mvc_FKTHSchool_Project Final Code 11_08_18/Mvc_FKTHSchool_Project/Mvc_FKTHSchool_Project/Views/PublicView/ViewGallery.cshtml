@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Mvc_FKTHSchool_Project.Models.ViewGalleryModel>
+
+@{
+    ViewBag.Title = "ViewGallery";
+    Layout = "~/Views/Shared/_LayoutPublic.cshtml";
+}
+
+<!--promo block-->
+<div class="g-bg-position--center js__parallax-window" style="background: url(../../Content/Template/img/student1.jpg) 50% 0 no-repeat fixed;height:320px">
+    <div class="g-container--md  g-padding-y-150--xs g-text-center--xs">
+        <p class="text-uppercase g-font-size-46--xs g-font-size-50--lg g-font-weight--700 g-color--white g-letter-spacing--2 g-margin-b-25--xs" style="margin-left:28%;margin-top:7%;">Photo Gallery</p>
+
+    </div>
+</div>
+
+
+
+@*<div class="g-text-center--xs g-margin-t-80--xs">
+        <p class="g-font-size-32--xs g-font-weight--700 g-color--primary g-letter-spacing--2 g-margin-b-5--xs">Photo Gallery</p>
+        <div class="center-block g-hor-divider__solid--heading-light g-width-150--xs g-margin-b-30--xs"></div>
+    </div>*@
+
+<div class="g-bg-color--sky-light">
+    <div class="container g-padding-y-20--xs g-padding-y-80--sm">
+        
+
+
+
+            <div id="js__grid-portfolio-gallery" class="cbp">
+                @foreach (var item in Model)
+                {
+
+                <div class="s-portfolio__item cbp-item logos graphic">
+                    <div class="s-portfolio__img-effect" style="height:250px;">
+                        <img src=@item.imagePath alt="Portfolio Image" style="height:100%;width:100%">
+                    </div>
+                    <div class="s-portfolio__caption-hover--cc">
+                        <div class="g-margin-b-25--xs">
+                            <h4 class="g-font-size-18--xs g-color--white g-margin-b-5--xs">@item.title</h4>
+                            <p class="g-color--white-opacity">@item.imageDescription</p>
+                        </div>
+                        <ul class="list-inline g-ul-li-lr-5--xs g-margin-b-0--xs">
+                            <li>
+                                <a href=@item.imagePath class="cbp-lightbox s-icon s-icon--sm s-icon--white-bg g-radius--circle" data-title="@item.title @item.imageDescription">
+                                    <i class="ti-fullscreen"></i>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+
+
+
+                }
+
+            </div>
+        </div>
+
+
+        </div>
+  
+
+

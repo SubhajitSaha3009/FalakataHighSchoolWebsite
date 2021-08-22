@@ -1,0 +1,30 @@
+﻿@model Mvc_FKTHSchool_Project.Models.GetStudentNotedByIdModel
+
+@{
+    ViewBag.Title = "NotesDownloads";
+    Layout = "~/Views/Shared/_myLayout_Student_Note.cshtml";
+}
+
+<h2>NotesDownloads</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>GetStudentNotedByIdModel</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ofClass)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ofClass)
+            @Html.ValidationMessageFor(model => model.ofClass)
+        </div>
+
+        <p>
+            <input type="submit" value="Get Notes" />
+        </p>
+    </fieldset>
+}
+

@@ -1,0 +1,71 @@
+﻿@model Mvc_FKTHSchool_Project.Models.ChangeStudentResultSt
+
+@{
+    ViewBag.Title = "ChangeResultStatusToFail";
+    Layout = "~/Views/Shared/myLayout_Admin.cshtml";
+}
+
+@*<h2>ChangeResultStatusToFail</h2>*@
+<div class="g-bg-color--sky-light">
+    <div class="container g-padding-y-20--xs g-padding-y-40--sm">
+        
+        <center>  <i style="color:red;"> @ViewBag.emsg </i><b style="color:green;">@ViewBag.msg </b></center>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+                <center> <legend><h2><b>Change Student Result Status</b></h2></legend></center>
+                <table align="center" style="width:80%">
+                    <tr>
+                        <td>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.StudentId)
+                            </div>
+                        </td>
+                        <td>
+                            <div class="g-margin-b-20--xs">
+                                @Html.TextBoxFor(model => model.StudentId, new { @class = "form-control s-form-v2__input g-radius--50", placeholder = "*Student Id", maxlength="8" })
+
+                            </div>
+                        </td>
+                        <td style="color:red;">
+                            @Html.ValidationMessageFor(model => model.StudentId)
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Status)
+                            </div>
+                        </td>
+                        <td>
+                            <div class="editor-field">
+                                Pass @Html.RadioButton("Status", "Pass", false)
+                                Fail @Html.RadioButton("Status", "Fail", true)
+                            </div>
+                        </td>
+                        <td style="color:red;">
+                            @Html.ValidationMessageFor(model => model.Status)
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td> <div style="height:20px;"></div></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <button type="submit" value="Add Student" class="g-text-center--xs s-btn s-btn--md s-btn--primary-bg g-radius--50 g-padding-x-80--xs">Change Result Status</button>
+                        </td>
+                    </tr>
+                   
+                  
+                </table>
+            </fieldset>
+        }
+        </div>
+    </div>

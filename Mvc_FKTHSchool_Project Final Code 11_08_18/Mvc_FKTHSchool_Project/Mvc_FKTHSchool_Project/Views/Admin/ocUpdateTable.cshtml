@@ -1,0 +1,109 @@
+﻿@model IEnumerable<Mvc_FKTHSchool_Project.Models.OCModel>
+
+@{
+    ViewBag.Title = "ocUpdateTable";
+    Layout = "~/Views/Shared/myLayout_Admin.cshtml";
+}
+
+<div class="g-text-center--xs g-margin-t-80--xs g-margin-b-40--xs">
+    <p class="g-font-size-40--xs g-font-weight--600">President List</p>
+    <b class="g-margin-t-10--xs" style="color:red">@ViewBag.blankP</b><br />
+</div>
+
+<table class="table table-hover table-bordered g-margin-b-30--xs" align="center" style="width:60%;text-align:center;">
+    <tr>
+        <th style="text-align:center">
+            @Html.DisplayNameFor(model => model.ocName)
+        </th>
+        <th style="text-align:center">
+            @Html.DisplayNameFor(model => model.ocPosition)
+        </th>
+        <th style="text-align:center">
+            @Html.DisplayNameFor(model => model.fromYear)
+        </th>
+        <th style="text-align:center">
+            @Html.DisplayNameFor(model => model.toYear)
+        </th>
+        <th style="text-align:center">
+            Option
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.ocPosition == "President")
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ocName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ocPosition)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fromYear)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.toYear)
+                </td>
+                <td>
+                    @Html.ActionLink("Update", "OCUpdate", new { id = item.ocID })
+                </td>
+            </tr>
+        }
+
+    }
+
+</table>
+
+
+<div class="g-text-center--xs g-margin-t-80--xs g-margin-b-40--xs">
+    <p class="g-font-size-40--xs g-font-weight--600">Secretary List</p>
+    <b class="g-margin-t-10--xs" style="color:red">@ViewBag.blankS</b><br />
+</div>
+
+<table class="table table-hover table-bordered g-margin-b-30--xs" align="center" style="width:60%;text-align:center;">
+    <tr>
+        <th style="text-align:center">
+            @Html.DisplayNameFor(model => model.ocName)
+        </th>
+        <th style="text-align:center">
+            @Html.DisplayNameFor(model => model.ocPosition)
+        </th>
+        <th style="text-align:center">
+            @Html.DisplayNameFor(model => model.fromYear)
+        </th>
+        <th style="text-align:center">
+            @Html.DisplayNameFor(model => model.toYear)
+        </th>
+        <th style="text-align:center">
+            Option
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.ocPosition == "Secretary")
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ocName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ocPosition)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fromYear)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.toYear)
+                </td>
+                <td>
+                    @Html.ActionLink("Update", "OCUpdate", new { id = item.ocID })
+                </td>
+            </tr>
+        }
+
+    }
+
+</table>>

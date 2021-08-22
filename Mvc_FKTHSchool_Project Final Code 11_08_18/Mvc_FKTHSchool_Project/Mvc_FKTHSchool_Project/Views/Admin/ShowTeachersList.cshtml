@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Mvc_FKTHSchool_Project.Models.GetAllTeacherModel>
+
+@{
+    ViewBag.Title = "ShowTeachersList";
+    Layout = "~/Views/Shared/myLayout_Admin.cshtml";
+}
+
+<div class="g-bg-color--sky-light">
+    <div class="container g-padding-y-20--xs g-padding-y-40--sm">
+        <div style="overflow-x:scroll">
+            <center><h2>ShowTeachersList</h2></center> 
+
+
+            <table class="table table-hover table-bordered" style="width:80%" align="center">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.teacherID)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.teacherName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.teacherDesignation)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.subjectSpecilization)
+                    </th>
+                    <th>
+                        Action
+                    </th>
+
+
+
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.teacherID)
+                        </td>
+
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.teacherName)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.teacherDesignation)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.subjectSpecilization)
+                        </td>
+
+                        <td>
+                            @Html.ActionLink("Update", "UpdateTeacherProfile", new { id = item.teacherID }) 
+
+                        </td>
+                    </tr>
+                }
+
+            </table>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Mvc_FKTHSchool_Project.Models.NewsModel>
+
+@{
+    ViewBag.Title = "News";
+    Layout = "~/Views/Shared/_LayoutPublic.cshtml";
+}
+
+
+<!--promo block-->
+<div class="g-bg-position--center js__parallax-window" style="background: url(../../Content/Template/img/student1.jpg) 50% 0 no-repeat fixed;height:320px">
+    <div class="g-container--md  g-padding-y-150--xs g-text-center--xs">
+        <p class="text-uppercase g-font-size-46--xs g-font-size-50--lg g-font-weight--700 g-color--white g-letter-spacing--2 g-margin-b-25--xs" style="margin-left:38%;margin-top:7%;">Latest Events</p>
+
+    </div>
+</div>
+
+
+
+<div class="g-bg-color--sky-light">
+    <div class="container g-padding-y-20--xs g-padding-y-80--sm">
+        @*<div class="g-text-center--xs g-margin-b-40--xs">
+            <p class="g-font-size-32--xs g-font-weight--700 g-color--primary g-letter-spacing--2 g-margin-b-25--xs">Latest Events</p>
+            <div class="center-block g-hor-divider__solid--heading-light g-width-150--xs g-margin-b-30--xs"></div>
+        </div>*@
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1">
+                @foreach (var item in Model)
+                {
+                    <div class="col-sm-4 g-margin-b-30--xs g-margin-b-30--md">
+                        <!-- News -->
+                        <article>
+                            <div class="g-bg-color--white" style="height:180px;">
+                                <img class="img-thumbnail" style="height:100%;width:100%" src=@item.newsImageAddress alt="Image">
+                            </div>
+                            <div class="g-bg-color--white g-box-shadow__dark-lightest-v2 g-text-center--xs g-padding-x-40--xs g-padding-y-40--xs" style="height:200px; overflow-y:scroll;">
+                                <h3 class="g-font-size-14--xs g-font-size-16--sm g-font-size-22--md g-font-weight--600 g-letter-spacing--1">@item.newsTitle</h3>
+                                <p class="g-font-size-10--lg g-font-size-12--lg g-font-size-18--lg">@item.newsDescription</p>
+                            </div>
+                        </article>
+                        <!-- End News -->
+                    </div>
+                }
+            </div>
+        </div>
+      </div>
+</div>

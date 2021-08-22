@@ -1,0 +1,96 @@
+﻿@model Mvc_FKTHSchool_Project.Models.AlumniModel
+
+@{
+    ViewBag.Title = "AlumniUpdate";
+    Layout = "~/Views/Shared/myLayout_Admin.cshtml";
+}
+
+
+<div class="g-bg-color--sky-light">
+    <div class="container g-padding-y-20--xs g-padding-y-80--sm">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+                <center><legend>Update Alumni</legend></center>
+
+                <table align="center" style="width:60%">
+                    <tr>
+                        <td style="font-size:23px">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.alumniID, new { style = "font-size: 17px;" })
+                            </div>
+                        </td>
+                        <td style="font-size:23px">
+                            <div class="g-margin-b-20--xs">
+                                @Html.TextBox("alumniID", (Int32)ViewBag.aid, new { @class = "form-control s-form-v2__input g-radius--50", @readonly="readonly" })
+
+                            </div>
+                        </td>
+                        <td style="font-size:23px">
+                            <b style="color:red;">@Html.ValidationMessageFor(model => model.alumniID)</b>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-size:23px">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.name, new { style = "font-size: 17px;" })
+                            </div>
+                        </td>
+                        <td style="font-size:23px">
+                            <div class="g-margin-b-20--xs">
+                                @Html.TextBox("name", (string)ViewBag.aName, new { @class = "form-control s-form-v2__input g-radius--50" })
+
+                            </div>
+                        </td>
+                        <td style="font-size:23px">
+                            <b style="color:red;">@Html.ValidationMessageFor(model => model.name)</b>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-size:23px">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.allumniClass, new { style = "font-size: 17px;" })
+                            </div>
+                        </td>
+                        <td style="font-size:23px">
+                            <div class="g-margin-b-20--xs">
+                                @Html.DropDownList("allumniClass", ViewBag.alumniClass as List<SelectListItem>, new { @class = "form-control s-form-v2__input g-radius--50" })
+
+                            </div>
+                        </td>
+                        <td style="font-size:23px">
+                            <b style="color:red;">@Html.ValidationMessageFor(model => model.allumniClass)</b>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-size:23px">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.year, new { style = "font-size: 17px;" })
+                            </div>
+                        </td>
+                        <td style="font-size:23px">
+                            <div class="g-margin-b-20--xs">
+                                @Html.DropDownList("year", ViewBag.alumniYear as List<SelectListItem>, new { @class = "form-control s-form-v2__input g-radius--50" })
+                            </div>
+                        </td>
+                        <td style="font-size:23px">
+                            <b style="color:red;">@Html.ValidationMessageFor(model => model.year)</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td colspan="3">
+                            <button type="submit" value="Submit" class="g-text-center--xs s-btn s-btn--md s-btn--primary-bg g-radius--50 g-padding-x-80--xs">Update</button>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        }
+    </div>
+</div>

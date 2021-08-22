@@ -1,0 +1,63 @@
+﻿@model Mvc_FKTHSchool_Project.Models.ShowAllPassoutStudentModel
+
+@{
+    ViewBag.Title = "GetLeftStudendts";
+    Layout = "~/Views/Shared/myLayout_Admin.cshtml";
+}
+<div class="g-bg-color--sky-light">
+    <div class="container g-padding-y-20--xs g-padding-y-40--sm">
+    
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+                <center><legend><h2>Select Passout Student Particulars</h2></legend></center>
+                <table align="center" style="width:80%">
+                    <tr>
+                        <td>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.OfClass)
+                            </div>
+                        </td>
+                        <td>
+                            <div class="g-margin-b-20--xs">
+                                @Html.DropDownList("OfClass", ViewBag.ClassofPass as List<SelectListItem>, new { @class = "form-control s-form-v2__input g-radius--50" })
+                            </div>
+                        </td>
+                        <td>
+                            <b style="color:red"> @Html.ValidationMessageFor(model => model.OfClass)</b>
+</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Year)
+                            </div>
+                        </td>
+                        <td>
+                            <div class="g-margin-b-20--xs">
+                                @*@Html.EditorFor(model => model.Year)*@
+                                @Html.DropDownList("Year", ViewBag.Yearofpass as List<SelectListItem>, new { @class = "form-control s-form-v2__input g-radius--50" })
+                               
+                            </div>
+                        </td>
+                        <td>
+                           <b style="color:red"> @Html.ValidationMessageFor(model => model.Year)</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <button type="submit" value="Update Student" class="g-text-center--xs s-btn s-btn--md s-btn--primary-bg g-radius--50">View Data</button>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        }
+
+    </div>
+</div>
+

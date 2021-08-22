@@ -1,0 +1,251 @@
+﻿@model Mvc_FKTHSchool_Project.Models.StudentModel
+
+@{
+    ViewBag.Title = "AddStudent";
+    Layout = "~/Views/Shared/myLayout_Teacher.cshtml";
+}
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/bundles/jqueryui")
+@Styles.Render("~/Content/themes/base/css")
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var datetoday = new Date();
+        $("#dob").datepicker({
+            dateformat: "mm/dd/yy",
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "-70Y",
+
+            //mindate:dateToday;
+            maxDate: datetoday
+        });
+    });
+</script>
+
+
+<div class="g-bg-color--sky-light">
+    <div class="container g-padding-y-80--xs g-padding-y-125--sm">
+
+
+        @using (Html.BeginForm("AddStudent", "Teacher", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            <div align="center" style="width:200%">
+                <fieldset>
+                    <div class=" row g-margin-b-40--xs">
+                        <div class="col-sm-6 g-margin-b-20--xs g-margin-b-0--md">
+                            <legend>Enter Student's details</legend>
+
+                            <table cellspacing="20">
+                                <tr>
+
+                                    <td style="font-size:23px">
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.name, new { style = "font-size: 17px;" })
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <div class="g-margin-b-20--xs">
+                                            @Html.TextBoxFor(model => model.name, new { @class = "form-control s-form-v2__input g-radius--50", placeholder = "*Name", maxlength = "60", style = "width: 300px" })
+                                        </div>
+                                    </td>
+                                    <td style="color:red;">
+                                        @Html.ValidationMessageFor(model => model.name)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.dob, new { style = "font-size: 17px" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="g-margin-b-20--xs">
+                                            @*@Html.TextBoxFor(model => model.dob, new { @class = "form-control s-form-v2__input g-radius--50", placeholder = "dd/mm/yyyy" })*@
+                                            @*<input type="date" name="DOB" class="form-control s-form-v2__input g-radius--50" placeholder="dd/mm/yyyy">*@
+                                            @Html.TextBoxFor(model => model.dob, new { @class = "form-control s-form-v2__input g-radius--50", placeholder = "dd/mm/yyyy", @type = "date" })
+                                            <p style="color:darkgreen">DOB cannot be changed in future</p>
+                                        </div>
+                                    </td>
+                                    <td style="color:red;">
+                                        @Html.ValidationMessageFor(model => model.dob)
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.studentGender, new { style = "font-size: 17px;" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="editor-field">
+                                            Male @Html.RadioButton("studentGender", "Male", false)
+                                            Female @Html.RadioButton("studentGender", "Female", false)
+
+                                        </div>
+                                    </td>
+                                    <td style="color:red;">
+                                        @Html.ValidationMessageFor(model => model.studentGender)
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.AddmissionYear, new { style = "font-size: 17px;" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="g-margin-b-20--xs">
+                                            @Html.TextBoxFor(model => model.AddmissionYear, new { @class = "form-control s-form-v2__input g-radius--50  g-padding-y-20--xs", placeholder = "*Your class V admission year", maxlength = "4" })
+                                            <p style="color:darkgreen">Addmission year cannot be changed in future</p>
+                                        </div>
+                                    </td>
+                                    <td style="color:red;">
+                                        @Html.ValidationMessageFor(model => model.AddmissionYear)
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.father_guardian_name, new { style = "font-size: 17px;" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="g-margin-b-20--xs">
+                                            @Html.TextBoxFor(model => model.father_guardian_name, new { @class = "form-control s-form-v2__input g-radius--50  g-padding-y-20--xs", placeholder = "*Father's/Guardian's name", maxlength = "60" })
+
+                                        </div>
+                                    </td>
+                                    <td style="color:red;">
+                                        @Html.ValidationMessageFor(model => model.father_guardian_name)
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.relationWithGuadrian, new { style = "font-size: 17px;" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="g-margin-b-20--xs">
+                                            @Html.TextBoxFor(model => model.relationWithGuadrian, new { @class = "form-control s-form-v2__input g-radius--50", placeholder = "*e.g. Father, Mother, Uncle etc.", maxlength = "50" })
+
+                                        </div>
+                                    </td>
+                                    <td style="color:red;">
+                                        @Html.ValidationMessageFor(model => model.relationWithGuadrian)
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.mother_name, new { style = "font-size: 17px;" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="g-margin-b-20--xs">
+                                            @Html.TextBoxFor(model => model.mother_name, new { @class = "form-control s-form-v2__input g-radius--50", placeholder = "*Mother's name", maxlength = "60" })
+                                            <p style="color:darkgreen">Mother's name cannot be changed in future</p>
+                                        </div>
+                                    </td>
+                                    <td style="color:red;">
+                                        @Html.ValidationMessageFor(model => model.mother_name)
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.guardian_mob_no, new { style = "font-size: 17px;" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="g-margin-b-20--xs">
+                                            @Html.TextBoxFor(model => model.guardian_mob_no, new { @class = "form-control s-form-v2__input g-radius--50", placeholder = "*Country code not required", maxlength = "10" })
+
+                                        </div>
+                                    </td>
+                                    <td style="color:red;">
+                                        @Html.ValidationMessageFor(model => model.guardian_mob_no)
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.address, new { style = "font-size: 17px;" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="g-margin-b-20--xs">
+                                            @Html.TextAreaFor(model => model.address, new { @class = "form-control s-form-v2__input g-radius--50 g-padding-y-20--xs", @rows = "5", maxlength = "100" })
+
+                                        </div>
+                                    </td>
+                                    <td style="color:red;">
+                                        @Html.ValidationMessageFor(model => model.address)
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.class_name, new { style = "font-size: 17px;" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="g-margin-b-20--xs">
+                                            @Html.DropDownList("class_name", ViewBag.classSelection as List<SelectListItem>, new { @class = "form-control s-form-v2__input g-radius--50" })
+
+                                        </div>
+                                    </td>
+                                    <td style="color:red;">
+                                        @Html.ValidationMessageFor(model => model.class_name)
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.studentStatus, new { style = "font-size: 17px;" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="g-margin-b-20--xs">
+                                            <center>@Html.LabelFor(model => model.studentStatus, "Current", new { style = "font-size: 15px" })</center>
+
+                                        </div>
+                                    </td>
+                                    <td style="color:red;">
+                                        @Html.ValidationMessageFor(model => model.studentStatus)
+                                    </td>
+                                </tr>
+
+                                <tr>
+
+                                    <td colspan="3">
+                                        <button type="submit" value="Add Student" class="g-text-center--xs s-btn s-btn--md s-btn--primary-bg g-radius--50 g-padding-x-80--xs">Add Student</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </div>
+        }
+    </div>
+</div>

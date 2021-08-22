@@ -1,0 +1,138 @@
+﻿@model Mvc_FKTHSchool_Project.Models.AdminModel
+
+@{
+    ViewBag.Title = "AddAdmin";
+    Layout = "~/Views/Shared/myLayout_Admin.cshtml";
+}
+
+<script>
+    $(document).on('invalid-form.validate', 'form', function () {
+        var button = $(this).find('input[type="submit"]');
+        setTimeout(function () {
+            button.removeAttr('disabled');
+        }, 1);
+    });
+    $(document).on('submit', 'form', function () {
+        var button = $(this).find('input[type="submit"]');
+        setTimeout(function () {
+            button.attr('disabled', 'disabled');
+        }, 0);
+    });
+</script>
+
+
+<div class="g-bg-color--sky-light">
+    <div class="container g-padding-y-20--xs g-padding-y-40--sm">
+       
+        <center><i style="font-size:25px; color:red;">@ViewBag.errmsg @ViewBag.Error</i></center>
+
+
+        @using (Html.BeginForm("AddAdmin", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+          
+                <fieldset>
+                   <legend><b><center> <h2>Enter Admin Details</h2></center></b></legend>
+                            
+                            <table align="center" style="width:80%;">
+                                <tr>
+                                    <td style="font-size:23px;">
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.adminName, new { style = "font-size: 17px;" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="g-margin-b-20--xs">
+                                            @Html.TextBoxFor(model => model.adminName, new { @class = "form-control s-form-v2__input g-radius--50", placeholder = "*Name" })
+                                            @*<input type="text" name="teacherName" class="form-control s-form-v2__input g-radius--50" placeholder="*Name" value="@Request["teacherName"]" />*@
+                                        </div>
+                                    </td>
+                                    <td style="color:red;">
+                                        @Html.ValidationMessageFor(model => model.adminName)
+                                        @*@Html.ValidationMessage("teacherName")*@
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>
+
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.adminGender, new { style = "font-size: 17px;" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="editor-field">
+                                            Male @Html.RadioButton("adminGender", "Male", false)
+                                            Female @Html.RadioButton("adminGender", "Female", false)
+                                        </div>
+                                    </td>
+                                    <td style="color:red;">
+                                        @Html.ValidationMessageFor(model => model.adminGender)
+
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+                                    <td>
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.adminDesignation, new { style = "font-size: 17px;" })
+
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="g-margin-b-20--xs">
+                                            @Html.TextBoxFor(model => model.adminDesignation, new { @class = "form-control s-form-v2__input g-radius--50", placeholder = "e.g. Assistant teacher" })
+                                            @*@Html.EditorFor(model => model.teacherDesignation)*@
+
+                                        </div>
+                                    </td>
+                                    <td style="color:red;">
+                                        @Html.ValidationMessageFor(model => model.adminDesignation)
+                                    </td>
+                                </tr>
+
+
+
+                                <tr>
+                                    <td>
+                                        <div class="editor-label">
+                                            @Html.LabelFor(model => model.imageAddress, new { style = "font-size: 17px;" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="g-margin-b-20--xs">
+                                            @*<input type="text" name="teacherName" class="form-control s-form-v2__input g-radius--50" placeholder="*Name" value="@Request["teacherName"]" />*@
+                                            <input type="file" name="imageAddress" class="form-control s-form-v2__input g-radius--50" placeholder="*image" value="@Request["imageAddress"]" />
+
+
+                                        </div>
+                                    </td>
+
+                                   
+
+                                </tr>
+
+
+
+                              
+                                <tr>
+                                    <td></td>
+                                    <td colspan="3">
+                                        <input type="submit" value="Submit" class="text-uppercase s-btn s-btn--md s-btn--primary-bg g-radius--50 g-padding-x-70--xs g-margin-b-20--xs" />
+                                    </td>
+                                </tr>
+                            </table>
+                        
+
+                </fieldset>
+           
+        }
+    </div>
+</div>
+
+

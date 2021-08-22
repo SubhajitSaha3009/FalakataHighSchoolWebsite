@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Mvc_FKTHSchool_Project.Models.NewsModel>
+
+@{
+    ViewBag.Title = "EventsUpdateTable";
+    Layout = "~/Views/Shared/myLayout_Teacher.cshtml";
+}
+
+<div class="g-text-center--xs g-margin-t-20--xs g-margin-b-10--xs">
+    <i style="color:red;font-size:25px">@ViewBag.noEventsFound</i><br />
+    <i style="color:green;font-size:25px">@ViewBag.dlt</i>
+    <p class="g-font-size-40--xs g-font-weight--600">Events</p>
+   
+    @{ string s = (string)ViewBag.dlt;}
+</div>
+
+<div style="overflow-x:scroll;overflow-y:hidden;">
+    <table class="table table-hover table-bordered g-margin-b-30--xs" align="center" style="width:80%;text-align:center;">
+        <tr>
+            <th style="text-align:center">
+                Uploader ID
+            </th>
+            <th>
+                Upload Date
+            </th>
+            <th>
+                Event Title
+            </th>
+            <th style="text-align:center">
+                Event Description
+            </th>
+            <th>
+                Event Date
+            </th>
+            <th style="text-align:center" colspan="2">
+                Options
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.teacherID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.uploadDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.newsTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.newsDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.newsDate)
+                </td>
+                <td>
+                    
+                    @Html.ActionLink("Update", "UpdateNews", new { newsID = item.newsID })
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "DeleteNews", new { newsID = item.newsID }, new { onclick = "return confirm('Are sure wants to delete?');" })
+                </td>
+            </tr>
+        }
+    </table>
+</div>

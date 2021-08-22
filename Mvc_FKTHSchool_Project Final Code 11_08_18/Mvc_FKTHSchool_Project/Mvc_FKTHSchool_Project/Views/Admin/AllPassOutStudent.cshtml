@@ -1,0 +1,106 @@
+﻿@model IEnumerable<Mvc_FKTHSchool_Project.Models.StudentModel>
+
+@{
+    ViewBag.Title = "AllPassOutStudent";
+    Layout = "~/Views/Shared/myLayout_Admin.cshtml";
+}
+
+
+
+<div class="g-bg-color--sky-light">
+    <div class="container g-padding-y-20--xs g-padding-y-40--sm">
+        <center><h2><b>Passout Student of @ViewBag.Yearofpassout </b></h2></center>
+        <div style="overflow-x:scroll">
+            <table class="table table-hover table-bordered" cellspacing="20" style="width:80%" align="center">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.studentId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.dob)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.studentGender)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AddmissionYear)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.father_guardian_name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.relationWithGuadrian)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.mother_name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.guardian_mob_no)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.address)
+                    </th>
+                   
+                   
+                    <th>
+                        @Html.DisplayNameFor(model => model.studentStatus)
+                    </th>
+                   
+                    <th>
+                        @Html.DisplayNameFor(model => model.Passoutyear)
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+            {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.studentId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.dob)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.studentGender)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AddmissionYear)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.father_guardian_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.relationWithGuadrian)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.mother_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.guardian_mob_no)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.address)
+                        </td>
+                       
+                      
+                        <td>
+                            @Html.DisplayFor(modelItem => item.studentStatus)
+                        </td>
+                       
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Passoutyear)
+                        </td>
+
+                    </tr>
+            }
+
+            </table>
+        </div>
+    </div>
+</div>

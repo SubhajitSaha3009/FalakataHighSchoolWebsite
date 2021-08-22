@@ -1,0 +1,279 @@
+﻿@model Mvc_FKTHSchool_Project.Models.MyModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutWelcome.cshtml";
+}
+
+
+<!--About & Notice Board-->
+<div class="g-promo-section g-bg-color--sky-light">
+    <div class="container-fluid g-padding-y-20--xs g-padding-y-20--sm" style="padding-top:50px;">
+        <div class="row">
+            <div class="col-md-2 g-margin-t-15--xs g-margin-b-60--xs g-margin-b-0--lg">
+
+                <div class="wow fadeInLeft" data-wow-duration=".3" data-wow-delay=".1s">
+                    <h2 class="g-font-size-32--xs g-font-size-40--sm g-font-size-50--md"><b>About</b></h2>
+                </div>
+                <div class="wow fadeInLeft" data-wow-duration=".3" data-wow-delay=".3s">
+                    <h2 class="g-font-size-32--xs g-font-size-40--sm g-font-size-50--md"><b>Falakata</b></h2>
+                </div>
+                <div class="wow fadeInLeft" data-wow-duration=".3" data-wow-delay=".3s">
+                    <h2 class="g-font-size-32--xs g-font-size-40--sm g-font-size-50--md"><b>High</b></h2>
+                </div>
+                <div class="wow fadeInLeft" data-wow-duration=".3" data-wow-delay=".3s">
+                    <h2 class="g-font-size-32--xs g-font-size-40--sm g-font-size-50--md"><b>School</b></h2>
+                </div>
+            </div>
+            @*<div class="col-md-1">
+                <img src="~/Content/Template/img/q3.png" class="img-responsive">
+            </div>*@
+            <div class="col-md-5 col-md-offset-1 col-xs-12">
+                <img class="g-margin-b-0--xs pull-left" src="~/Content/Template/img/q1.png" style="height:60px;width:55px;">
+                <p class="g-margin-t-10--xs g-font-size-19--xs g-margin-b-0--xs" style="text-align:justify;">
+                &nbsp;&nbsp;&nbsp;&nbsp; Falakata High Scool(HS) is a glorious institution in the history of school education in West Bengal since its recognition as x class High  School(1949). Actually the school was established in 1886 as Middle English school(class viii ) and after that it was a High English School. This school was upgraded as X+2(HS) from 01.07.1976. With the excellent academic record of the students our school attained admiration in district and state. Science, Arts, Commerce, ComputerEducation are the streams in HS. Students of the school have got celebrity in the country and abroad. Teachers are also well educated and careful to shape the career of the students.</p>
+                <img class="pull-left" src="~/Content/Template/img/q2.png" style="height:60px;width:55px;">
+                <table class="g-margin-t-40--xs" align="right" style="text-align:right;">
+                    <tr>
+                        <td class="g-font-size-22--xs g-font-weight--700">
+                            Dr. Subhash Sen Gupta
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="g-font-size-19--xs">
+                            Ex. Head Master
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="g-font-size-19--xs">
+                            Falakata High School
+                        </td>
+                    </tr>
+                </table>
+               
+            </div>
+            <div class="col-md-4 col-xs-12">
+
+                <div style="height:500px;background-image: url(../../Content/Template/img/notice-board.jpg); background-size: 100% 100%;background-repeat:no-repeat">
+                    <marquee height="80%;" direction="up" hspace="50px" scrolldelay="300" onmouseover="stop()" onmouseout="start()" class="g-margin-t-80--xs">
+
+                        <ul>
+                            @foreach (var item in Model.listOfNotice)
+                            {
+
+                                if (@item.status == "new")
+                                {
+
+                                    <li>
+                                        <a href=@Url.Content(@item.href) target="_blank">@Html.DisplayFor(modelItem => item.title)</a>
+                                        <img src="~/Content/Template/img/new-blink.gif" border="0">
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li>
+                                        <a href=@Url.Content(@item.href) target="_blank">@Html.DisplayFor(modelItem => item.title)</a>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                    </marquee>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--End of About & Notice Board-->
+
+<!--Events-->
+<div class="g-text-center--xs g-padding-y-5--xs g-bg-color--sky-light">
+    <p class="g-font-size-38--xs g-font-weight--700 g-color--primary g-letter-spacing--2">Events At FKTHS</p>
+    <div class="center-block g-hor-divider__solid--heading-light g-width-250--xs g-margin-b-25--xs"></div>
+</div>
+
+<!-- Promo Section -->
+<div class="g-promo-section g-bg-color--sky-light">
+    <div class="col-sm-6 col-sm-pull-6 g-promo-section__img-right--md g-promo-section__img-left--md g-bg-position--center g-height-400--xs g-height-100-percent--md js__fullwidth-img">
+        <img class="img-responsive" src="~/Content/Template/img/970x970/annualSportsEvents.jpg" alt="Image">
+    </div>
+    <div class="container g-padding-y-40--xs g-padding-y-80--sm">
+        <div class="row">
+            <div class="col-sm-5 col-sm-push-7">
+                <div class="g-margin-b-30--xs">
+                    <h3 class="g-font-size-32--xs g-font-size-36--sm">@Html.ActionLink("Annual Sports Event", "News", "PublicView")</h3>
+                    <p>The importance of sports and games in school encompasses more than just the benefit of physical activity. Increases in self-esteem and mental alertness make school sports and games necessary for every school age child.</p>
+                </div>
+                <a href='@Url.Action("News", "PublicView")' class="text-uppercase s-btn s-btn--sm s-btn--primary-brd g-radius--50 g-padding-x-40--xs">Read More</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Promo Section -->
+
+ <!-- Promo Section -->
+<div class="g-promo-section g-bg-color--sky-light">
+    <div class="col-sm-6 g-promo-section__img-right--md g-bg-position--center g-height-400--xs g-height-100-percent--md js__fullwidth-img">
+        <img class="img-responsive" src="~/Content/Template/img/970x970/Events2.jpg" alt="Image">
+    </div>
+    <div class="container g-padding-y-40--xs g-padding-y-125--sm">
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="g-margin-b-30--xs">
+                    <h3 class="g-font-size-32--xs g-font-size-36--sm"><a @Html.ActionLink("Cultural Events", "News", "PublicView")</a></h3>
+                    <p>Education cannot happen just at school. it must go beyond the walls of the classroom. Watching a play performed live is quite a different experience than reading a play from a book. Through attendance at events, FKTHS students broaden their horizons and gain unique insights into their own communities as well as a broader global perspective of our world’s diverse cultures</p>
+                </div>
+                <a href='@Url.Action("News", "PublicView")' class="text-uppercase s-btn s-btn--sm s-btn--primary-brd g-radius--50 g-padding-x-40--xs">Read More</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Promo Section -->
+
+<!-- Promo Section -->
+<div class="g-promo-section g-bg-color--sky-light">
+    <div class="col-sm-6 col-sm-pull-6 g-promo-section__img-right--md g-promo-section__img-left--md g-bg-position--center g-height-400--xs g-height-100-percent--md js__fullwidth-img">
+        <img class="img-responsive" src="~/Content/Template/img/970x970/saraswatiPujoEvents.jpg" alt="Image">
+    </div>
+    <div class="container g-padding-y-40--xs g-padding-y-125--sm">
+        <div class="row">
+            <div class="col-sm-5 col-sm-push-7">
+                <div class="g-margin-b-30--xs">
+                    <h3 class="g-font-size-32--xs g-font-size-36--sm">@Html.ActionLink("Saraswati pujo", "News", "PublicView")</h3>
+                    <p>Saraswati Puja is one of the most important annual events of India or Bharatiya culture going back centuries – a wonderful festival of art and learning that can awaken the higher awareness and creativity within us.
+
+Saraswati Puja is part of India’s traditional culture of respect for learning, nature and the whole of life. This culture of respect is embodied in various rituals held throughout the year on special days of the Hindu calendar.</p>
+                </div>
+                <a href='@Url.Action("News", "PublicView")' class="text-uppercase s-btn s-btn--sm s-btn--primary-brd g-radius--50 g-padding-x-40--xs">Read More</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Promo Section -->
+<!--End of Events-->
+
+   <!-- Counter -->
+<div class="g-bg-color--sky-light g-height-30--sm"></div>
+<div class="g-bg-color--sky-light js__parallax-window" style="background: url('../../Content/Template/img/1920x1080/06.jpg') 50% 0 no-repeat fixed;">
+    <div class="container g-padding-y-80--xs g-padding-y-125--sm">
+        <div class="row">
+            <div class="col-md-3 col-xs-6 g-full-width--xs g-margin-b-70--xs g-margin-b-0--lg">
+                <div class="g-text-center--xs">
+                    <div class="g-margin-b-10--xs">
+                        <figure class="g-display-inline-block--xs g-font-size-70--xs g-color--white js__counter">3</figure>
+                        <span class="g-font-size-40--xs g-color--white">k+</span>
+                    </div>
+                    <div class="center-block g-hor-divider__solid--white g-width-40--xs g-margin-b-25--xs"></div>
+                    <h4 class="g-font-size-18--xs g-color--white">Students</h4>
+                </div>
+            </div>
+            <div class="col-md-3 col-xs-6 g-full-width--xs g-margin-b-70--xs g-margin-b-0--lg">
+                <div class="g-text-center--xs">
+                    <div class="g-margin-b-10--xs">
+                        <figure class="g-display-inline-block--xs g-font-size-70--xs g-color--white js__counter">50</figure>
+
+                        <span class="g-font-size-40--xs g-color--white">+</span>
+                    </div>
+                    <div class="center-block g-hor-divider__solid--white g-width-40--xs g-margin-b-25--xs"></div>
+                    <h4 class="g-font-size-18--xs g-color--white">Faculties</h4>
+                </div>
+            </div>
+            <div class="col-md-3 col-xs-6 g-full-width--xs g-margin-b-70--xs g-margin-b-0--sm">
+                <div class="g-text-center--xs">
+                    <div class="g-margin-b-10--xs">
+                        <figure class="g-display-inline-block--xs g-font-size-70--xs g-color--white js__counter">35</figure>
+                        <span class="g-font-size-40--xs g-color--white">+</span>
+                    </div>
+                    <div class="center-block g-hor-divider__solid--white g-width-40--xs g-margin-b-25--xs"></div>
+                    <h4 class="g-font-size-18--xs g-color--white">Classrooms</h4>
+                </div>
+            </div>
+            <div class="col-md-3 col-xs-6 g-full-width--xs">
+                <div class="g-text-center--xs">
+                    <div class="g-margin-b-10--xs">
+
+                        @{    DateTime datevalue = (Convert.ToDateTime(DateTime.Now.ToString()));
+                            String yy = datevalue.Year.ToString();
+                            int y = Convert.ToInt32(yy) - 1949;
+
+                            <figure class="g-display-inline-block--xs g-font-size-70--xs g-color--white js__counter"> @y</figure>
+                        }
+                        <span class="g-font-size-40--xs g-color--white">+</span>
+                    </div>
+                    <div class="center-block g-hor-divider__solid--white g-width-40--xs g-margin-b-25--xs"></div>
+                    <h4 class="g-font-size-18--xs g-color--white">Years Experience</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Counter -->
+<div class="g-bg-color--sky-light g-height-30--xs"></div>
+
+<!-- Testimonials -->
+<div class="g-bg-color--sky-light g-hor-divider__dashed--sky-light g-padding-y-40--xs g-padding-y-20--xsm g-bg-color--sky-light" style="background-image:url(../../Content/Template/img/1920x1080/tp.png);background-repeat: no-repeat; background-size: 100% 100%;">
+    <div class="container g-text-center--xs">
+        @*<p class="text-uppercase g-font-size-38--xs g-font-weight--700 g-bg-color--white-opacity g-letter-spacing--2 g-margin-b-20--xs">Glorys Galore</p>*@
+
+        <div class="s-swiper js__swiper-testimonials">
+            <!-- Swiper Wrapper -->
+            <div class="swiper-wrapper g-margin-b-10--xs">
+                @foreach (var item in Model.listOfToppers)
+                {
+
+
+
+                    <div class="swiper-slide g-padding-x-130--sm g-padding-x-150--lg">
+                        <div class="g-padding-x-20--xs g-padding-x-20--lg">
+
+
+                            <center><h2 class="g-font-size-15--xs g-font-weight--700 g-font-size-32--xs  g-bg-color--white-opacity g-margin-t-80--xs g-margin-b-5--xs" style="color:#1B4F72; width:38%;">Class @item.OfClass</h2></center>
+                            <div class="center-block g-width-100--xs g-margin-b-30--xs"></div>
+
+                            <div class="row">
+                                <div class="col-md-10 col-md-offset-1 col-xs-12">
+                                    <div class="col-md-2 col-md-offset-1 col-xs-3 col-xs-offset-1 g-padding-r-15--lg">
+                                        <div class="row" style="height: 130px;">
+                                            @*<img src=@item.F_path style="height:100%;width:100%" />*@
+                                            <img src="@item.F_path" style="height:100%;width:100%" onerror="this.onerror = null; this.src = '/ToppersPic/student.png'  " />
+                                        </div>
+
+
+                                        <b style="font-size:large;color:#AED6F1">  @item.FirstName </b> <br /> <i style="color:#48C9B0;"><b> (1st)</b></i>
+
+                                    </div>
+                                    <div class="col-md-2 col-md-offset-2 col-xs-3 col-xs-offset-1">
+                                        <div class="row" style="height: 130px;">
+                                            <img src="@item.S_path" style="height:100%;width:100%" onerror="this.onerror = null; this.src = '/ToppersPic/student.png'  " />
+                                        </div>
+
+                                        <b style="font-size:large;color:#AED6F1">  @item.SecondName </b> <br /> <i style="color:#48C9B0;"><b>  (2nd)</b> </i>
+                                    </div>
+
+                                    <div class="col-md-2 col-md-offset-2 col-xs-3 col-xs-offset-1">
+                                        <div class="row" style="height: 130px;">
+                                            <img src="@item.T_path" style="height:100%;width:100%" onerror="this.onerror = null; this.src = '/ToppersPic/student.png'  " />
+
+                                        </div>
+                                        <b style="font-size:large;color:#AED6F1">  @item.ThirdName </b> <br />  <i style="color:#48C9B0;"><b> (3rd)</b></i>
+                                    </div>
+                                </div>
+                            </div>
+                            @*<div class="center-block g-width-100--xs g-margin-b-30--xs"></div>
+                                <h4 class="g-font-size-15--xs g-font-size-18--sm g-color--primary g-margin-b-5--xs">Class @item.OfClass</h4>*@
+
+                        </div>
+                    </div>
+                }
+
+            </div>
+
+            <!-- End Swipper Wrapper -->
+            <!-- Arrows -->
+            <div class="g-font-size-22--xs g-color--white js__swiper-fraction"></div>
+            <a href="javascript:void(0);" class="g-display-none--xs g-display-inline-block--sm s-swiper__arrow-v1--right s-icon s-icon--md s-icon--primary-brd g-radius--circle ti-angle-right js__swiper-btn--next"></a>
+            <a href="javascript:void(0);" class="g-display-none--xs g-display-inline-block--sm s-swiper__arrow-v1--left s-icon s-icon--md s-icon--primary-brd g-radius--circle ti-angle-left js__swiper-btn--prev"></a>
+            <!-- End Arrows -->
+        </div>
+    </div>
+</div>

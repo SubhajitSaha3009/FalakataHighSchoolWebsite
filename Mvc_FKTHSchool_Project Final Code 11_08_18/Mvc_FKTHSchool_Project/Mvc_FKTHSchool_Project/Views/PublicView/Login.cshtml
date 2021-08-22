@@ -1,0 +1,82 @@
+﻿@model Mvc_FKTHSchool_Project.Models.LogInModel
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_myLayout_Login.cshtml";
+}
+
+@*<h2>Login</h2>*@
+
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div align="right">
+        <fieldset>
+            <div>
+                <center style="font-size:22px;color:red;">  @ViewBag.errmsg</center>
+            </div>
+            @*<legend>LogInModel</legend>*@
+            <table align="center" style="width:80%">
+                <tr>
+                    <td>
+                        <div class="row g-row-col-5 g-margin-b-50--xs">
+                            <div class="editor-field">
+                                @*@Html.EditorFor(model => model.LogInId)*@
+                                @Html.TextBoxFor(model => model.LogInId, new { @class = "form-control s-form-v3__input", placeholder = "*Login ID" })
+                                <b style="color:red;">@Html.ValidationMessageFor(model => model.LogInId)</b>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        <div class="row g-row-col-5 g-margin-b-50--xs">
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.Password, new { type = "password", @class = "form-control s-form-v3__input", placeholder = "*Password" })
+                                <b style="color:red;"> @Html.ValidationMessageFor(model => model.Password)</b>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="row g-row-col-5 g-margin-b-50--xs col-sm-6 form-control s-form-v3__input">
+                            <div class="editor-field" style="text-align:left">
+                                <b>*Category:</b>
+                                @*Teacher @Html.RadioButtonFor(model => model.category, new { @class = "col-sm-6 form-control s-form-v3__input" })
+                Student @Html.RadioButtonFor(model => model.category, new { @class = "col-sm-6 form-control s-form-v3__input" })*@
+
+                                Teacher @Html.RadioButtonFor(model => model.category, "Teacher")
+                                Student @Html.RadioButtonFor(model => model.category, "Student")
+
+                                <b style="color:red;">@Html.ValidationMessageFor(model => model.category)</b>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="float:right">
+                        <p>
+                            @*<input type="submit" value="Create" />*@
+                            <button type="submit" class="text-uppercase s-btn s-btn--md s-btn--white-bg g-radius--50 g-padding-x-70--xs g-margin-b-20--xs">Submit</button><br/>
+                            <a> @Html.ActionLink("Forgot Your Password?", "ForgetPassword", "PublicViewController", new { @style = "color:white; margin-left:20px;" })</a>
+                        </p>
+                    </td>
+                </tr>
+               
+            </table>
+
+           
+
+   
+            
+    </fieldset>
+        </div>
+}
+

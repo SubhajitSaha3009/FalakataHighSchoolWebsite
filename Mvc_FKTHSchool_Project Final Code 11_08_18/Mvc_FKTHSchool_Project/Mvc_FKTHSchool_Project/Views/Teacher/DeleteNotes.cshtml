@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Mvc_FKTHSchool_Project.Models.NotesModel>
+
+@{
+    ViewBag.Title = "DeleteNotes";
+    Layout = "~/Views/Shared/myLayout_Teacher.cshtml";
+}
+
+
+<div class="g-bg-color--sky-light" style="overflow-x:scroll">
+    <div class="container g-padding-y-20--xs g-padding-y-40--sm">
+        <center>
+            <i style="color:green;font-size:25px;"> @ViewBag.msg </i>
+            <i style="color:red;font-size:25px;"> @ViewBag.emsg </i>
+        </center>
+        <center><h2>DeleteNotes</h2></center>
+
+        <center>
+            <table class="table table-hover table-bordered" style="width:70%">
+                <tr>
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.TeacherId)
+                        </th>*@
+                    @*<th>
+                        @Html.DisplayNameFor(model => model.NotesID)
+                    </th>*@
+                    <th>
+                        @Html.DisplayNameFor(model => model.OfClass)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Section)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NoteSDesc)
+                    </th>
+                    <th>
+                        Action
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        @*<td>
+                                @Html.DisplayFor(modelItem => item.TeacherId)
+                            </td>*@
+                        @*<td>
+                            @Html.DisplayFor(modelItem => item.NotesID)
+                        </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OfClass)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Section)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NoteSDesc)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Delete", "DeleteN", new { id = item.NotesID }, new { onclick = "return confirm('Are sure wants to delete?');" })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </center>
+    </div>
+</div>

@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Mvc_FKTHSchool_Project.Models.GetAllTeacherModel>
+
+@{
+    ViewBag.Title = "AllTeachers";
+    Layout = "~/Views/Shared/_LayoutPublic.cshtml";
+}
+
+
+
+<!--promo block-->
+<div class="g-bg-position--center js__parallax-window" style="background: url(../../Content/Template/img/student1.jpg) 50% 0 no-repeat fixed;height:320px">
+    <div class="g-container--md  g-padding-y-150--xs g-text-center--xs">
+        <p class="text-uppercase g-font-size-34--xs g-font-size-46--lg g-font-weight--700 g-color--white g-letter-spacing--2 g-margin-b-25--xs" style="margin-left:20%;margin-top:7%;">Honourable Faculties</p>
+
+    </div>
+</div>
+
+
+
+
+    @*<div class="g-text-center--xs g-margin-t-80--xs">
+        <p class="g-font-size-32--xs g-font-weight--700 g-color--primary g-letter-spacing--2 g-margin-b-5--xs">Honourable Faculties</p>
+        <div class="center-block g-hor-divider__solid--heading-light g-width-150--xs g-margin-b-30--xs"></div>
+    </div>*@
+
+    <div class="g-bg-color--white g-padding-y-40--xs g-padding-y-50--sm">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12 jumbotron">
+                    <div class="row g-bg-color--dark g-radius--50 g-margin-b-10--xs ">
+                        <p class="g-padding-x-70--xs g-font-size-16--xs g-text-center--xs g-color--white g-font-weight--500">Our Mission</p>
+                    </div>
+                    <div class="row g-margin-l-10--xs g-margin-r-10--xs  g-margin-b-10--xs">
+                        <p class="g-font-size-14--xs">&nbsp; Our mission is to frame the character of students to stand on their own feet with the manifestation of perfection already in them. Just like the bloomed flower fragrance of their character will spread in the society with the spirit of humanity. Not they will become only Engineers,Doctors,man of letters,but wiill also be right man,right citizen to love downtrodden and distressed by convenning universal brotherhood.</p>
+                    </div>
+                    <div class="row g-bg-color--dark g-radius--50 g-margin-b-10--xs ">
+                        <p class="g-padding-x-70--xs g-font-size-16--xs g-text-center--xs g-color--white g-font-weight--500">Our Vission</p>
+                    </div>
+                    <div class="row g-margin-l-10--xs g-margin-r-10--xs  g-margin-b-10--xs">
+                        <p class="g-font-size-14--xs">&nbsp;In the mirror of futurity our students will reflect their best performance.They will swim in the stream of multivarious knowledge.Cultivation of science,arts, commerce with the precious faculties will motivate the  students to attain the   success in present and the days to come in future.They will bring the victory for the nation and world with research and honour.Our students will fight against the poverty and all evil circumstances by overcoming all obstacles. .We are waiting for their win.</p>
+                    </div>
+                </div>
+                <div class="col-md-7 g-margin-l-5--xs col-sm-12 jumbotron">
+                    <div class="row" style="overflow-y:scroll;overflow-x:hidden; height:678px;">
+                        @foreach (var item in Model)
+                        {
+                            if (@item.teacherStatus != "retired teacher")
+                            {
+                                <div class="g-bg-color--white g-margin-b-10--xs">
+                                    <div class="row">
+                                        <div class="col-sm-4 col-xs-10 col-xs-offset-1">
+                                            @if (@item.teacherGender == "Male")
+                                            {
+                                                <img class="g-width-150--xs g-height-150--xs g-hor-border-4__solid--white g-box-shadow__primary-v1 g-radius--circle g-margin-b-30--xs" src="@item.imageAddress" onerror="this.onerror = null; this.src = '/TeacherImages/teacher_male.jpg'  " alt="Image">
+                                            }
+                                            else
+                                            {
+                                                <img class="g-width-150--xs g-height-150--xs g-hor-border-4__solid--white g-box-shadow__primary-v1 g-radius--circle g-margin-b-30--xs" src="@item.imageAddress" onerror="this.onerror = null; this.src = '/TeacherImages/teacher_female.jpg'  " alt="Image">
+                                            }
+                                        </div>
+                                        <div class="col-sm-6 g-margin-t-20--sm col-sm-offset-1 col-xs-10 col-xs-offset-1">
+                                            <h4 class="g-margin-b-0--xs g-font-size-24--xs  g-font-size-30--sm g-font-weight--700 g-font-family--secondary" style="color:#A04000">@Html.DisplayFor(modelItem => item.teacherName)</h4>
+                                            <div class="g-margin-b-40--xs">
+                                                <p class="g-font-size-15--xs g-font-size-18--sm g-font-family--playfair g-color--heading"><b style="color:#154360">@Html.DisplayFor(modelItem => item.teacherDesignation)</b></p>
+                                                @if (@item.subjectSpecilization != "")
+                                                {
+                                                    <p class="g-font-size-15--xs g-font-size-18--sm g-font-family--playfair g-color--heading"><i class="g-font-size-20--sm g-font-size-17--xs g-font-weight--600">Specialisation&nbsp;&nbsp;</i><i>@Html.DisplayFor(modelItem => item.subjectSpecilization)</i></p>
+
+                                                }
+                                                <p class="g-font-size-15--xs g-font-size-18--sm g-font-family--playfair g-color--heading"><i class="g-font-size-20--sm g-font-size-17--xs g-font-weight--600">Qualification&nbsp;&nbsp;</i><i>@Html.DisplayFor(modelItem => item.Qualification)</i></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-5 col-sm-offset-7 col-xs-9 col-xs-offset-3 g-hor-divider__solid--heading-light g-width-100--xs g-margin-b-30--xs"></div>
+                                    </div>
+                                </div>
+                            }
+
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

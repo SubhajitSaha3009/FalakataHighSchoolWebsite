@@ -1,0 +1,101 @@
+﻿@model Mvc_FKTHSchool_Project.Models.UpdateAdminModel
+
+@{
+    ViewBag.Title = "UpdateAdminProfile";
+    Layout = "~/Views/Shared/myLayout_Admin.cshtml";
+}
+
+@*<h2>UpdateAdminProfile</h2>*@
+<div class="g-bg-color--sky-light">
+    <div class="container g-padding-y-80--xs g-padding-y-125--sm">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+    <fieldset>
+        <center> <legend><b>Update Admin</b></legend></center>
+     
+           
+                    <table style="width:80%;" align="center">
+                        <tr>
+                            <td>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.adminID, new { style = "font-size: 17px;" })
+                                </div>
+                            </td>
+                            <td>
+                                <div class="g-margin-b-20--xs">
+                                    @*@Html.EditorFor(model => model.adminID)*@
+                                    @Html.TextBox("adminID", (Int32)ViewBag.AdminID, new { @class = "form-control s-form-v2__input g-radius--50", @readonly = "readonly" })
+
+                                </div>
+                            </td>
+                            <td>
+                                @Html.ValidationMessageFor(model => model.adminID)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.adminName, new { style = "font-size: 17px;" })
+                                </div>
+                            </td>
+                            <td>
+                                <div class="g-margin-b-20--xs">
+                                    @*@Html.EditorFor(model => model.adminName)*@
+                                    @Html.TextBox("adminName", (string)ViewBag.Name, new { @class = "form-control s-form-v2__input g-radius--50" })
+
+                                </div>
+                            </td>
+                            <td>
+                                <b style="color:red;"> @Html.ValidationMessageFor(model => model.adminName)</b>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.adminStatus, new { style = "font-size: 17px;" })
+                                </div>
+                            </td>
+                            <td>
+                                <div class="g-margin-b-20--xs">
+                                    @*@Html.EditorFor(model => model.adminStatus)*@
+                                    @Html.DropDownList("adminStatus", ViewBag.Astatus as List<SelectListItem>, new { @class = "form-control s-form-v2__input g-radius--50" })
+
+                                </div>
+                            </td>
+                            <td>
+                                @Html.ValidationMessageFor(model => model.adminStatus)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <p>
+                                    @*<input type="submit" value="Create" />*@
+                                    <button type="submit" value="Edit Admin" class="g-text-center--xs s-btn s-btn--md s-btn--primary-bg g-radius--50 g-padding-x-80--xs">EDIT ADMIN PROFILE</button>
+                                </p>
+                            </td>
+                            <td></td>
+                        </tr>
+
+
+
+
+
+
+
+
+
+
+                    </table>
+               
+   
+        
+    </fieldset>
+        }
+      </div>
+</div>

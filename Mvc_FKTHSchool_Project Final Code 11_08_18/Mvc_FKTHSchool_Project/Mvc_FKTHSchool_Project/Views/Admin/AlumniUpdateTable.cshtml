@@ -1,0 +1,99 @@
+﻿@model IEnumerable<Mvc_FKTHSchool_Project.Models.AlumniModel>
+
+@{
+    ViewBag.Title = "AlumniUpdateTable";
+    Layout = "~/Views/Shared/myLayout_Admin.cshtml";
+}
+
+
+
+
+<div class="g-text-center--xs g-margin-t-80--xs g-margin-b-40--xs">
+    <p class="g-font-size-40--xs g-font-weight--600">School Toppers List for class 10</p>
+    <b class="g-margin-t-10--xs" style="color:red">@ViewBag.blank10</b><br />
+</div>
+
+<table class="table table-hover table-bordered g-margin-b-30--xs" align="center" style="width:60%;text-align:center;">
+    <tr>
+        <th style="text-align:center">
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th style="text-align:center">
+            @Html.DisplayNameFor(model => model.allumniClass)
+        </th>
+        <th style="text-align:center">
+            @Html.DisplayNameFor(model => model.year)
+        </th>
+        <th style="text-align:center">
+            Option
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.allumniClass == "10")
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.allumniClass)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.year)
+                </td>
+                <td>
+                    @Html.ActionLink("Update", "AlumniUpdate", new { id = item.alumniID })
+                </td>
+            </tr>
+        }
+
+    }
+
+</table>
+
+
+<div class="g-text-center--xs g-margin-t-80--xs g-margin-b-40--xs">
+    <p class="g-font-size-40--xs g-font-weight--600">School Toppers List for class 12</p>
+    <b class="g-margin-t-10--xs" style="color:red">@ViewBag.blank12</b><br />
+</div>
+<table class="table table-hover table-bordered g-margin-b-30--xs" align="center" style="width:60%;text-align:center;">
+    <tr>
+        <th style="text-align:center">
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th style="text-align:center">
+            @Html.DisplayNameFor(model => model.allumniClass)
+        </th>
+        <th style="text-align:center">
+            @Html.DisplayNameFor(model => model.year)
+        </th>
+        <th style="text-align:center">
+            Option
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.allumniClass == "12")
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.allumniClass)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.year)
+                </td>
+                <td>
+                    @Html.ActionLink("Update", "AlumniUpdate", new { id = item.alumniID })
+                </td>
+            </tr>
+        }
+
+    }
+
+</table>

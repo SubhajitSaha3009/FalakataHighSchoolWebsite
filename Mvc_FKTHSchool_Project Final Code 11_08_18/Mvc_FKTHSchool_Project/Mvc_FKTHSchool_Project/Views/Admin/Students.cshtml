@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Students";
+    Layout = "~/Views/Shared/myLayout_Admin.cshtml";
+}
+
+<div class="g-bg-color--sky-light">
+    <div class="container g-padding-y-20--xs g-padding-y-80--sm">
+        <center><h4><b>Student Information</b></h4></center>
+        <div class="row">
+            <div class="col-md-3 col-md-offset-3 g-padding-y-20--xs">
+                <a href="@Url.Action("GetAllStudentList", "Admin")" class="btn btn-primary">Show/Edit Current Students</a>
+            </div>
+            <div class="col-md-3 g-padding-y-20--xs">
+                <a href="@Url.Action("GetLeftStudendts", "Admin")" class="btn btn-primary">Show Passout Students</a>
+            </div>
+        </div>
+    </div>
+</div>

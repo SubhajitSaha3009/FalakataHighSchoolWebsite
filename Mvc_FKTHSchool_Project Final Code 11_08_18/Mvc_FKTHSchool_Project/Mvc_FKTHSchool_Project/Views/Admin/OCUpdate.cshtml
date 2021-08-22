@@ -1,0 +1,111 @@
+﻿@model Mvc_FKTHSchool_Project.Models.OCModel
+
+@{
+    ViewBag.Title = "OCUpdate";
+    Layout = "~/Views/Shared/myLayout_Admin.cshtml";
+}
+
+<div class="g-bg-color--sky-light">
+    <div class="container g-padding-y-20--xs g-padding-y-10--sm">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+                <center><legend><h2><b>Update President/Secretary</b></h2></legend></center>
+
+                <table align="center" style="width:60%">
+                    <tr>
+                        <td style="font-size:23px">
+                            <div class="editor-label" style="font-size: 17px;">
+                                ID
+                            </div>
+                        </td>
+                        <td style="font-size:23px">
+                            <div class="g-margin-b-20--xs">
+                                @Html.TextBox("ocID", (Int32)ViewBag.ocID, new { @class = "form-control s-form-v2__input g-radius--50", @readonly = "readonly" })
+
+                            </div>
+                        </td>
+                        <td style="font-size:23px">
+                            <b style="color:red;">@Html.ValidationMessageFor(model => model.ocID)</b>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-size:23px">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.ocName, new { style = "font-size: 17px;" })
+                            </div>
+                        </td>
+                        <td style="font-size:23px">
+                            <div class="g-margin-b-20--xs">
+                                @Html.TextBox("ocName", (string)ViewBag.name, new { @class = "form-control s-form-v2__input g-radius--50" })
+
+                            </div>
+                        </td>
+                        <td style="font-size:23px">
+                            <b style="color:red;">@Html.ValidationMessageFor(model => model.ocName)</b>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-size:23px">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.ocPosition, new { style = "font-size: 17px;" })
+                            </div>
+                        </td>
+                        <td style="font-size:23px">
+                            <div class="g-margin-b-20--xs">
+                                @Html.DropDownList("ocPosition", ViewBag.ocCategory as List<SelectListItem>, new { @class = "form-control s-form-v2__input g-radius--50" })
+
+                            </div>
+                        </td>
+                        <td style="font-size:23px">
+                            <b style="color:red;">@Html.ValidationMessageFor(model => model.ocPosition)</b>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-size:23px">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.fromYear, new { style = "font-size: 17px;" })
+                            </div>
+                        </td>
+                        <td style="font-size:23px">
+                            <div class="g-margin-b-20--xs">
+                                @Html.DropDownList("fromYear", ViewBag.ocYear as List<SelectListItem>, new { @class = "form-control s-form-v2__input g-radius--50" })
+                            </div>
+                        </td>
+                        <td style="font-size:23px">
+                            <b style="color:red;">@Html.ValidationMessageFor(model => model.fromYear)</b>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-size:23px">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.toYear, new { style = "font-size: 17px;" })
+                            </div>
+                        </td>
+                        <td style="font-size:23px">
+                            <div class="g-margin-b-20--xs">
+                                @Html.DropDownList("toYear", ViewBag.ocYear as List<SelectListItem>, new { @class = "form-control s-form-v2__input g-radius--50" })
+                            </div>
+                        </td>
+                        <td style="font-size:23px">
+                            <b style="color:red;">@Html.ValidationMessageFor(model => model.toYear)</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td colspan="3">
+                            <button type="submit" value="Submit" class="g-text-center--xs s-btn s-btn--md s-btn--primary-bg g-radius--50 g-padding-x-80--xs">Update</button>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        }
+    </div>
+</div>
